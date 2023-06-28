@@ -1,0 +1,132 @@
+<nav class="navbar navbar-expand-lg bg-white">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a routerLink="/home">
+      <img 
+        src="../../../../../assets/img/logos/logo.png" 
+        class="logo"
+      >
+    </a>
+
+    <!-- Botón en responsive -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbar" 
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Opciones del menú -->
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav">
+        <li *ngFor="let item of navItems">
+          <a class="nav-link ft-gray-2"> {{ item.item }} </a>
+        </li>
+        <li class="login-button bg-blue-1">
+          <a class="nav-link ft-white" routerLink="/auth/login">Iniciar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="body">
+
+  <!-- Presentación -->
+  <div>
+    <!-- Imagen de fondo del inicio -->
+    <img 
+      src="../../../../../assets/img/image/fondo-inicio.jpg" 
+      class="presentation-image position-absolute wt-100"
+    >
+
+    <!-- Inicio y presentación -->
+    <div class="presentation position-relative ft-white">
+      <h1>TravelPass</h1>
+      <div class="divider-lg bg-white"></div>
+      <div class="divider-sm bg-white display-none"></div>
+      <h2>Explora y viaja sin preocupaciones. Tu planificador de bolsillo te ayuda a hacerlo fácil.</h2>
+      <a routerLink="/home/information" class="bg-blue-2 ft-white">
+        Más información
+      </a>
+    </div>
+  </div>
+
+  <div class="position-relative">
+
+    <!-- Sobre nosotros -->
+    <div class="about-us bg-white wt-100">
+
+      <!-- Wave verde azulado -->
+      <div class="wave" style="height: 200px; overflow: hidden;"  bis_skin_checked="1">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+          <path d="M-0.00,49.85 C199.99,151.07 292.55,-6.40 500.78,15.25 L500.22,-0.49 L-0.00,0.00 Z" style="stroke: none; fill: #779D94;"></path>
+        </svg>
+      </div>
+
+      <!-- Contenido sobre nosotros -->
+      <div class="display-flex">
+        <div>
+          <h3 class="ft-green-1">Sobre nosotros</h3>
+          <div class="divider-md bg-gray-1"></div>
+          <div class="divider-sm bg-gray-1 display-none"></div>
+          <p>
+            Vel excepturi odio molestias corrupti accusamus maiores aspernatur assumenda nesciunt provident enim, blanditiis laborum aut animi 
+            totam odit ut architecto, dolorem magnam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi laudantium aut 
+            repellendus consequuntur neque nihil dolores at accusantium cupiditate perspiciatis corporis ea error, magnam id debitis aspernatur 
+            eaque non quisquam?
+          </p>
+        </div>
+        <img src="../../../../../assets/img/logos/logo.png" class="image-1">
+      </div>
+
+      <!-- Wave azul -->
+      <div class="wave" style="height: 200px; overflow: hidden;"  bis_skin_checked="1">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+          <path d="M-6.54,109.73 C215.80,-26.08 371.55,158.95 506.43,116.63 L500.00,149.60 L-0.00,149.60 Z" style="stroke: none; fill: #408ac7;"></path>
+        </svg>
+      </div>  
+    </div>
+
+    <!-- ¿Qué ofrecemos? -->
+    <div class="offers ft-white wt-100">
+
+      <!-- Descripción -->
+      <h3>¿Qué ofrecemos?</h3>
+      <div class="divider-md bg-white"></div>
+      <div class="divider-sm bg-white display-none"></div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit laborum, eius, harum quas voluptatum consequatur modi expedita 
+        error rem similique eaque delectus voluptate quis ea id? Earum tempore aliquam corrupti? Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Culpa id animi, magnam fuga laudantium officiis praesentium voluptatibus ad dicta eos, fugit non voluptates ratione aliquam repudiandae 
+        odit, dolor ut ullam.
+      </p>
+
+      <!-- Cartas -->
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+        <div class="col" *ngFor="let card of cardItems">
+          <div class="card">
+            <img [src]="card.image" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"> {{ card.title }} </h5>
+              <p class="card-text"> {{ card.description }} </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"> Límite: {{ card.limit }} </li>
+              <li class="list-group-item"> Precio: {{ card.price }} </li>
+              <li class="list-group-item"> Ubicación: {{ card.ubication }} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <app-footer 
+      class="wt-100"
+    ></app-footer>
+  </div>
+</div>

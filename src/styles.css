@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+/* Globales */
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600 !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Colors */
+.bg-white { background: #FFFFFF; }
+.bg-gray-1 { background: #D8D8D8; }
+.bg-gray-2 { background: #C3C3C3; }
+.bg-black { background: #000000; }
+.bg-blue-1 { background: #5691F1; }
+.bg-blue-2 { background: #4788EF; }
+.bg-blue-3 { background: #408AC7; }
+.bg-blue-4 { background: #E3E8EB; }
+
+.ft-white { color: #FFFFFF; }
+.ft-gray-1 { color: #3F3F3F; }
+.ft-gray-2 { color: #252525; }
+.ft-black { color: #000000; }
+.ft-blue-1 { color: #408AC7; }
+.ft-green-1 { color: #2EB485; }
+.ft-red-1 { color: #dc2e2e; }
+
+/* Divider */
+.divider-lg {
+  height: 0.3rem;
+  width: 17rem;
+}
+.divider-md {
+  height: 0.2rem;
+  width: 9rem;
+}
+.divider-sm {
+  height: 0.1rem;
+  width: 3rem;
+}
+
+/* Display y positions */
+.display-block { display: block; }
+.display-flex { display: flex; }
+.display-none { display: none; }
+
+.position-absolute { position: absolute; }
+.position-relative { position: relative; }
+
+/* Fonts */
+h1 { font-size: 5.2rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2.5rem; }
+h4 { font-size: 1.8rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+p { 
+  font-size: 1.2rem; 
+  text-align: justify;
+}
+
+/* Width */
+.wt-100 { width: 100%; }

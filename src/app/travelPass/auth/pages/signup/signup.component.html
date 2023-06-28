@@ -1,0 +1,101 @@
+<div class="login wt-100">
+  <div class="body text-center">
+    
+    <!-- TravelPass (Logo y nombre) -->
+    <app-logo-name></app-logo-name>
+
+    <!-- Formulario -->
+    <div class="form">
+      <form [formGroup]="form" (ngSubmit)="signup()">
+        <div class="display-flex">
+          <div>
+            <div>
+              <input 
+                class="form-control form-control-lg" 
+                formControlName="name" 
+                placeholder="Nombre" 
+                type="text"
+              >
+            </div>
+            <div class="ft-red-1 text-start mt-1 mb-2" *ngIf="invalidField('name')">
+              {{ errorMessage('name') }}
+            </div>
+            <div class="mt-3">
+              <input 
+                type="text" 
+                class="form-control form-control-lg" 
+                placeholder="Apellido"
+                formControlName="lastName"
+              >
+            </div>
+            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('lastName')">
+              {{ errorMessage('lastName') }}
+            </div>
+          </div>
+          <div>
+            <div class="display-block">
+              <select class="form-select form-select-lg mt-3" formControlName="state">
+                <option disabled selected hidden>-- Estado de residencia --</option>
+                <option *ngFor="let state of states" [value]="state.id">
+                  {{ state.name | uppercase }}
+                </option>
+              </select>
+            </div>
+            <div class="ft-red-1 text-start mt-1 mb-2" *ngIf="invalidField('state')">
+              {{ errorMessage('state') }}
+            </div>
+            <div class="mt-3">
+              <input 
+                type="email" 
+                class="form-control form-control-lg" 
+                placeholder="Correo electrónico"
+                formControlName="email"
+              >
+            </div>
+            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('email')">
+              {{ errorMessage('email') }}
+            </div>
+          </div>
+          <div>
+            <div class="mt-3 display-block">
+              <input 
+                type="password" 
+                class="form-control form-control-lg" 
+                placeholder="Contraseña"
+                formControlName="password1"
+              >
+            </div>
+            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('password1')">
+              {{ validatePassword1 }}
+            </div>
+            <div class="mt-3">
+              <input 
+                type="password" 
+                class="form-control form-control-lg" 
+                placeholder="Confirmar contraseña"
+                formControlName="password2"
+              >
+            </div>
+            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('password2')">
+              La contraseña deb coincidir con la anterior.
+            </div>
+          </div>
+        </div>
+        <button class="mt-3 wt-100 ft-white bg-blue-3" [disabled]="form.invalid">
+          Registrarse
+        </button>
+      </form>
+    </div>
+
+    <!-- Enlaces -->
+    <div class="links">
+      <p class="ft-black text-center">
+        ¿Tienes una cuenta? 
+        <a class="ft-gray-1" routerLink="/auth/login">
+          Ingresar
+        </a>
+      </p>
+    </div>
+
+  </div>
+</div>

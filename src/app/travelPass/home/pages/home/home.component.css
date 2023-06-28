@@ -1,0 +1,175 @@
+/* Navbar */
+.navbar {
+  padding:1.1rem 3.5rem;
+}
+.logo {
+  height: 3.5rem;
+  width: 3.5rem;
+  padding: 0.2rem;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.navbar-nav li {
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.navbar-nav li a {
+  font-size: 1.08rem;
+}
+.navbar-nav li a:hover {
+  color: #1650AE;
+}
+.login-button {
+  border-radius: 0.6rem;
+  padding: 0 0.5rem;
+  transition: 0.5s;
+}
+.login-button:hover {
+  background: #1650AE;
+  transition: 0.5s;
+}
+.login-button .ft-white:hover {
+  color: #FFFFFF !important;
+}
+
+/* Presentación */
+.presentation-image {
+  height: 40rem;
+}
+.presentation {
+  padding: 7.25rem 4.6rem;
+}
+.presentation h2 {
+  margin: 2rem 12rem 3.5rem 0;
+}
+.presentation a {
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.presentation a:hover {
+  background: #1650AE;
+  transition: 0.5s;
+}
+
+/* Sobre nosotros */
+.about-us .display-flex {
+  margin: 0 5rem;
+}
+.about-us .display-flex div {
+  margin-right: 7rem;
+} 
+.about-us .display-flex .divider-md {
+  margin: 0.8rem 0 1.5rem 0;
+}
+.about-us .image-1 {
+  height: 15rem;
+  width: 15rem;
+}
+
+/* ¿Qué ofrecemos? */
+.offers {
+  background: linear-gradient(90deg, #000000c1, #00000096), url('../../../../../assets/img/image/fondo-que-ofrecemos.jpg');  
+  background-size: cover;
+  padding: 5rem;
+}
+.offers .divider-md {
+  margin: 1.3rem 0 2.5rem 0;
+}
+.offers .card {
+  box-shadow: 5px 5px 5px #7D7D7D;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 1044px) {
+
+  /* Presentation */
+  .presentation-image {
+    display: none;
+  }
+  .presentation {
+    background: url('../../../../../assets/img/image/fondo-inicio.jpg');
+    background-size: cover;
+    height: auto;
+  }
+
+}
+@media (max-width: 989px) {
+
+  /* Globales */
+  h1 { 
+    font-size: 2.6rem; 
+  }
+  h2 { 
+    font-size: 1.6rem; 
+    margin: 1.6rem 0 3rem 0 !important;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  p { 
+    font-size: 0.85rem; 
+  }
+  .divider-sm {
+    display: block !important;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+  .navbar .bg-blue-1 {
+    background: #FFFFFF !important;
+    margin: 0 0.6rem;
+  }
+  .navbar .ft-white {
+    color: #252525;
+  }
+  .navbar .ft-white:hover {
+    color: #1650AE !important;
+  }
+
+  /* Presentación */
+  .presentation {
+    padding: 2rem 2.3rem 3rem 2.3rem;
+  }
+  .presentation .divider-lg {
+    display: none;
+  }
+
+  /* Sobre nosotros */
+  .about-us .wave {
+    height: 5rem !important;
+  }
+  .about-us .display-flex {
+    margin: 0 2.3rem;
+  }
+  .about-us .display-flex div {
+    margin-right: 0;
+  }
+  .about-us .divider-md {
+    display: none;
+  }
+  .about-us .divider-sm {
+    margin: 0.7rem 0 1.4rem 0;
+  }
+  .about-us .image-1 {
+    display: none;
+  }
+
+  /* ¿Qué ofrecemos? */
+  .offers {
+    padding: 2.3rem;
+  }
+  .offers .divider-md {
+    display: none;
+  }
+  .offers .divider-sm {
+    margin: 0.8rem 0 1.5rem 0;
+  }
+
+}

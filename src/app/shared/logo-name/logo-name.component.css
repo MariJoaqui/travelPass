@@ -1,0 +1,10 @@
+img {
+  height: 13rem;
+  margin: 2rem;
+  width: 13rem;
+}
+h2 {
+  background: linear-gradient(#1AAE3F, #0C5BA5);
+  -webkit-background-clip: text;
+  color: transparent;
+}

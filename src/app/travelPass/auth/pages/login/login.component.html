@@ -1,0 +1,58 @@
+<div class="login wt-100">
+  <div class="body text-center">
+
+    <!-- TravelPass (Logo y nombre) -->
+    <app-logo-name></app-logo-name>
+    
+    <div class="form">
+      <form [formGroup]="form" (ngSubmit)="login()">
+
+        <!-- Correo electrónico -->
+        <div>
+          <input 
+            type="email" 
+            class="form-control form-control-lg" 
+            placeholder="Correo electrónico"
+            formControlName="email"
+          >
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('email')">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Contraseña -->
+        <div class="mt-3">
+          <input 
+            type="password" 
+            class="form-control form-control-lg" 
+            placeholder="Contraseña"
+            formControlName="password"
+          >
+        </div>
+        <div class="ft-red-1 text-start mb-1 mt-1" *ngIf="invalidField('password')">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Botón para ingresar -->
+        <button class="wt-100 ft-white bg-blue-3 mt-3" [disabled]="form.invalid">
+          Iniciar sesión
+        </button>
+      </form>
+    </div>
+
+    <!-- Enlaces -->
+    <div class="links">
+      <a class="ft-gray-1" routerLink="/auth/forgot-password">
+        ¿Olvidaste tu contraseña?
+      </a>  
+      <br>
+      <p class="ft-black text-center">
+        ¿No tienes una cuenta? 
+        <a class="ft-gray-1" routerLink="/auth/sign-up">
+          Regístrate
+        </a>
+      </p>
+    </div>
+
+  </div>
+</div>

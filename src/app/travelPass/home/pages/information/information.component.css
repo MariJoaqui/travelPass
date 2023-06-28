@@ -1,0 +1,55 @@
+/* Globales */
+.padding-1 {
+  padding: 1.5rem 4.6rem;
+}
+
+/* Navbar */
+.navbar {
+  padding:1.1rem 3.5rem;
+}
+.logo {
+  height: 3.5rem;
+  width: 3.5rem;
+  padding: 0.2rem;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.login-button {
+  border-radius: 0.6rem;
+  padding: 0 0.5rem;
+  transition: 0.5s;
+}
+.login-button:hover {
+  background: #1650AE;
+  transition: 0.5s;
+}
+.login-button .ft-white:hover {
+  color: #FFFFFF !important;
+}
+
+/* Volver */
+.back-to a {
+  text-decoration: none;
+}
+.back-to a:hover {
+  color: #408AC7;
+}
+.back-to i {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  padding: 0.4rem;
+}
+
+/* Preguntas frecuentes */
+.faqs .divider-md {
+  margin: 0 auto 2.5rem auto;
+  width: 5rem;
+}
+
+/* Ayuda */
+.help i {
+  border-radius: 50%;
+  margin: 0.5rem 1rem 1rem 0;
+  padding: 0.5rem;
+}
