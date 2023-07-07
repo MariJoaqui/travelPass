@@ -1,0 +1,56 @@
+/* Título */
+.title .divider-md {
+  margin-top: 1.2rem;
+}
+
+/* Buscador */
+.search {
+  width: 35%;
+  margin-left: auto;
+}
+.search .form-control, 
+.search span {
+  border: #0C5BA5 1px solid !important;
+}
+
+/* Cartas */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 800px) {
+
+  /* Globales */
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  /* Body */
+  .body .padding {
+    padding: 2rem 2.3rem;
+  }
+  .body .display-flex {
+    flex-direction: column;
+  }
+
+  /* Tíluto */
+  .body .display-flex .title {
+    margin-bottom: 2rem;
+  }
+  .body .display-flex .divider-md {
+    display: none;
+  }
+  .body .display-flex .divider-sm {
+    display: block;
+  }
+
+  /* Buscador */
+  .search {
+    margin: 0 !important;
+    width: 100%;
+  }
+
+}

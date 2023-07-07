@@ -19,30 +19,30 @@ export class HomeComponent {
 
   // Cartas de ofertas de ejemplos
   cardItems: CardItems[] = [
-    {
-      image: '../../../../../assets/img/image/carta-1.jpg',
-      title: 'Plan Margarita',
-      description: 'Disfruta de 3 días y 2 noches en esta hermosa isla con toda tu familia.',
-      limit: '5 personas',
-      price: '450',
-      ubication: 'Margarita, Nueva Esparta.'
-    },
-    {
-      image: '../../../../../assets/img/image/carta-2.jpg',
-      title: 'Plan Margarita',
-      description: 'Disfruta de 3 días y 2 noches en esta hermosa isla con toda tu familia.',
-      limit: '5 personas',
-      price: '450',
-      ubication: 'Margarita, Nueva Esparta.'
-    },
-    {
-      image: '../../../../../assets/img/image/carta-3.jpg',
-      title: 'Plan Margarita',
-      description: 'Disfruta de 3 días y 2 noches en esta hermosa isla con toda tu familia.',
-      limit: '5 personas',
-      price: '450',
-      ubication: 'Margarita, Nueva Esparta.'
-    }
+    // {
+    //   image: '../../../../../assets/img/image/carta-1.jpg',
+    //   title: 'Plan Margarita',
+    //   description: 'Disfruta de 3 días y 2 noches en esta hermosa isla con toda tu familia.',
+    //   limit: '5 personas',
+    //   price: '450',
+    //   ubication: 'Margarita, Nueva Esparta.'
+    // },
+    // {
+    //   image: '../../../../../assets/img/image/carta-2.jpg',
+    //   title: 'Plan Margarita',
+    //   description: 'Disfruta de 3 días y 2 noches en esta hermosa isla con toda tu familia.',
+    //   limit: '5 personas',
+    //   price: '450',
+    //   ubication: 'Margarita, Nueva Esparta.'
+    // },
+    // {
+    //   image: '../../../../../assets/img/image/carta-3.jpg',
+    //   title: 'Plan Margarita',
+    //   description: 'Disfruta de 3 días y 2 noches en esta hermosa isla con toda tu familia.',
+    //   limit: '5 personas',
+    //   price: '450',
+    //   ubication: 'Margarita, Nueva Esparta.'
+    // }
   ];
 
 }

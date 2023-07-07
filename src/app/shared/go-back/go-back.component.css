@@ -1,0 +1,12 @@
+.back-to a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.back-to a:hover {
+  color: #408AC7;
+}
+.back-to i {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  padding: 0.4rem;
+}

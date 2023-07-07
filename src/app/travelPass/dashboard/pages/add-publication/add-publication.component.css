@@ -1,0 +1,23 @@
+/* Formulario */
+.form {
+  border-radius: 0.4rem;
+  margin: 3rem 0 0 0;
+}
+.form .form-control, .form-select {
+  border: #408AC7 1px solid;
+}
+
+/* Agregar */
+.add-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.add-button button {
+  border: none;
+  border-radius: 0.2rem;
+  box-shadow: 3px 3px 3px #bebebe;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}

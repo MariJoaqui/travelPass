@@ -1,0 +1,54 @@
+/* Navbar */
+.navbar {
+  padding:1.1rem 3.5rem;
+}
+.logo {
+  height: 3.5rem;
+  width: 3.5rem;
+  padding: 0.2rem;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.navbar-nav li {
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.navbar-nav li a {
+  font-size: 1.08rem;
+}
+.navbar-nav li a:hover {
+  color: #1650AE;
+}
+.login-button {
+  border-radius: 0.6rem;
+  padding: 0 0.5rem;
+  transition: 0.5s;
+}
+.login-button:hover {
+  background: #1650AE;
+  transition: 0.5s;
+}
+.login-button .ft-white:hover {
+  color: #FFFFFF !important;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 989px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+  .navbar .bg-blue-1 {
+    background: #FFFFFF !important;
+    margin: 0 0.6rem;
+  }
+  .navbar .ft-white {
+    color: #252525;
+  }
+  .navbar .ft-white:hover {
+    color: #1650AE !important;
+  }
+
+}

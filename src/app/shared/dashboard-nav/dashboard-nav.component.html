@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-blue-4">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <img src="../../../../../assets/img/logos/logo.png" class="logo">
+
+    <!-- Botón en responsive -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbar" 
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Opciones del menú -->
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav">
+        <li *ngFor="let item of navItems">
+          <a class="nav-link ft-gray-2" [routerLink]="item.link"> {{ item.item }} </a>
+        </li>
+        <li class="login-button bg-blue-1">
+          <a class="nav-link ft-white" routerLink="/auth/login">Salir</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -15,12 +15,14 @@
 .bg-blue-2 { background: #4788EF; }
 .bg-blue-3 { background: #408AC7; }
 .bg-blue-4 { background: #E3E8EB; }
+.bg-blue-5 { background: #C2E1F1; }
 
 .ft-white { color: #FFFFFF; }
 .ft-gray-1 { color: #3F3F3F; }
 .ft-gray-2 { color: #252525; }
 .ft-black { color: #000000; }
 .ft-blue-1 { color: #408AC7; }
+.ft-blue-2 { color: #0C5BA5; }
 .ft-green-1 { color: #2EB485; }
 .ft-red-1 { color: #dc2e2e; }
 
@@ -57,6 +59,9 @@ p {
   font-size: 1.2rem; 
   text-align: justify;
 }
+
+/* Margin y padding */
+.padding { padding: 2rem 4.6rem 3rem 4.6rem; }
 
 /* Width */
 .wt-100 { width: 100%; }

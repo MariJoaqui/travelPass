@@ -1,11 +1,15 @@
 // Cartas informativas
 export interface CardItems {
-  image       : string,
-  title       : string,
-  description : string,
-  limit       : string,      
-  price       : string,
-  ubication   : string,
+  id               : number,
+  id_profile?      : number,
+  id_state?        : number,
+  image            : any,
+  title            : string,
+  description      : string,
+  limit            : string,      
+  price            : string,
+  publicationDate? : string,
+  ubication?       : string,
 } 
 
 // Estados
@@ -18,6 +22,14 @@ export interface States {
 export interface Faqs {
   title       : string,
   description : string
+}
+
+// Imagenes
+export interface Image {
+  id             : number,
+  id_publication : number,
+  name           : string,
+  file           : string
 }
 
 // Login 

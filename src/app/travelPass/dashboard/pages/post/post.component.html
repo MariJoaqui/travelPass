@@ -4,10 +4,13 @@
 <!-- Body -->
 <div class="body">
   <div class="padding">
-    <div class="display-flex">
+    <!-- Volver -->
+    <app-go-back></app-go-back>
+
+    <div class="display-flex tb-flex">
       <!-- Título -->
       <div class="title">
-        <h3 class="ft-blue-1">Planes disponibles</h3>
+        <h3 class="ft-blue-1">Mis publicaciones</h3>
         <div class="divider-md bg-blue-3"></div>
         <div class="divider-sm bg-blue-3 display-none"></div>
       </div>
@@ -24,23 +27,24 @@
         </span>
       </div>
     </div>
-    
+
     <!-- Cartas -->
-    <div class="card-container mt-5">
-      <div class="card" *ngFor="let card of cards">
-        <img [src]="card.image" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{ card.title }}</h5>
-          <p class="card-text">{{ card.description }}</p>
-          <p class="card-text"><small class="text-body-secondary">{{ card.publicationDate }}</small></p>
-        </div>
-        <!-- <button class="btn btn-pimary">
-          ver mas
-        </button> -->
+    <div class="card bg-blue-5 display-flex" *ngFor="let card of cards">
+      <div class="card-body">
+        {{ card.title }}
       </div>
+      <a class="blue-button bg-blue-2 ft-white">
+        Ver
+      </a>
+    </div>
+
+    <!-- Agregar -->
+    <div class="add-button wt-100">
+      <a class="blue-button bg-blue-2 ft-white" routerLink="/dashboard/new-publication">
+        Añadir publicación
+      </a>
     </div>
   </div>
-</div>
 
-<!-- Footer -->
-<app-footer class="wt-100"></app-footer>
+  <app-footer class="wt-100"></app-footer>
+</div>

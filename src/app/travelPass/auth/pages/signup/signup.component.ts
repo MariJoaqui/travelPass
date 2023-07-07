@@ -40,8 +40,7 @@ export class SignupComponent implements OnInit {
   },
   {
     validators: [ this.Validator.equalFields( 'password1', 'password2' ) ]
-  }
-  );
+  });
 
   ngOnInit(): void {
     this.sharedService.getStates().subscribe( response => this.states = response );

@@ -3,10 +3,7 @@
 
     <!-- Logo -->
     <a routerLink="/home">
-      <img 
-        src="../../../../../assets/img/logos/logo.png" 
-        class="logo"
-      >
+      <img src="../../../../../assets/img/logos/logo.png" class="logo">
     </a>
 
     <!-- Botón en responsive -->
@@ -33,17 +30,15 @@
 <div class="body">
 
   <!-- Volver -->
-  <div class="back-to wt-100 bg-white padding-1">
-    <a class="ft-gray-1" routerLink="/home">
-      <i class="fa-solid fa-arrow-left ft-white bg-blue-3"></i> 
-      Volver 
-    </a>
+  <div class="padding">
+    <app-go-back></app-go-back>
   </div>
 
   <!-- Preguntas frecuentes -->
   <div class="faqs wt-100 bg-white padding-1">
     <h3 class="ft-blue-1 text-center">Preguntas frecuentes</h3>
     <div class="divider-md bg-blue-3"></div>
+    <div class="divider-sm bg-blue-3 display-none"></div>
   
     <div class="accordion" id="accordion">
       <div class="accordion-item" *ngFor="let faq of faqs; let i = index">

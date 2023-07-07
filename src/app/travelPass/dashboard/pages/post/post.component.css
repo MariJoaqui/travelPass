@@ -1,0 +1,50 @@
+/* Globales */
+.blue-button {
+  border-radius: 0.2rem;
+  box-shadow: 3px 3px 3px #bebebe;
+  margin: 0.9rem 1rem 0.9rem 0;
+  padding: 0.3rem 1rem;
+  text-decoration: none;
+}
+
+/* Título */
+.tb-flex {
+  margin-bottom: 2.5rem;
+  padding-top: 3rem;
+}
+.title .divider-md {
+  margin-top: 1.2rem;
+}
+
+/* Buscador */
+.search {
+  width: 35%;
+  margin-left: auto;
+}
+.search .form-control, 
+.search span {
+  border: #0C5BA5 1px solid !important;
+}
+
+/* Cartas */
+.card {
+  border: #8FBEEA 1px solid;
+  flex-direction: row;
+  margin-top: 0.4rem;
+  padding-top: 0;
+}
+.card .card-body {
+  padding: 1.3rem 1rem;
+}
+
+/* Agregar */
+.add-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.add-button a {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}

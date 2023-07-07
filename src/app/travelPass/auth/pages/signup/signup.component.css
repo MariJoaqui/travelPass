@@ -54,7 +54,10 @@
 @media (max-width: 660px) {
 
   .login {
-    padding: 2.2rem;
+    padding: 2rem;
+  }
+  .body {
+    padding: 0 0 2rem 0;
   }
 
 }

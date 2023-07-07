@@ -28,21 +28,8 @@
   color: #FFFFFF !important;
 }
 
-/* Volver */
-.back-to a {
-  text-decoration: none;
-}
-.back-to a:hover {
-  color: #408AC7;
-}
-.back-to i {
-  border-radius: 50%;
-  margin-right: 0.5rem;
-  padding: 0.4rem;
-}
-
 /* Preguntas frecuentes */
-.faqs .divider-md {
+.faqs .divider-md, .faqs .divider-sm {
   margin: 0 auto 2.5rem auto;
   width: 5rem;
 }
@@ -52,4 +39,59 @@
   border-radius: 50%;
   margin: 0.5rem 1rem 1rem 0;
   padding: 0.5rem;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 980px) {
+
+  /* Globales */
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  p { 
+    font-size: 0.85rem; 
+  }
+  .padding, .padding-1 {
+    padding: 1rem 2.3rem
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+  .navbar .bg-blue-1 {
+    background: #E3E8EB !important;
+    margin: 0 0.6rem;
+  }
+  .navbar .ft-white {
+    color: #252525;
+  }
+  .navbar .ft-white:hover {
+    color: #1650AE !important;
+  }
+
+  /* Preguntas frecuentes */
+  .faqs .divider-md {
+    display: none;
+  }
+  .faqs .display-none {
+    display: block;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Ayuda */
+  .help {
+    padding-top: 1rem !important;
+  }
+  .help .display-flex {
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+  .help i {
+    margin: 0.5rem 1rem 0.5rem 0;
+    padding: 0.4rem;
+  }
+
 }

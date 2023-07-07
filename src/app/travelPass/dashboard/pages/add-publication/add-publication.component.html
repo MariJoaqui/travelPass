@@ -1,0 +1,115 @@
+<!-- Nav -->
+<app-dashboard-nav></app-dashboard-nav>
+
+<!-- Body -->
+<div class="body padding">
+  <!-- Volver -->
+  <app-go-back></app-go-back>
+
+  <div class="mt-5">
+    <!-- Título -->
+    <h3 class="ft-blue-1">Nueva publicación</h3>
+    <div class="divider-md bg-blue-3"></div>
+    <div class="divider-sm bg-blue-3 display-none"></div>
+
+    <!-- Formulario -->
+    <div class="form text-center">
+      <form  [formGroup]="form" (ngSubmit)="submit()">
+
+        <!-- Título de la publicacóon -->
+        <div class="form-floating">
+          <input class="form-control" 
+                 formControlName="title" 
+                 placeholder="Título de la publicación"
+                 type="text">
+          <label for="floatingInput">Título</label>
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('title')">
+          {{ validateMinMax('title', 10, 100) }}
+        </div>
+
+        <!-- Precio -->
+        <div class="form-floating mt-3">
+          <input class="form-control" 
+                 formControlName="price"
+                 placeholder="Valor del paquete"
+                 type="text">
+          <label for="floatingInput">Precio</label>
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('price')">
+          {{ errorMessage('price') }}
+        </div>
+
+        <!-- Cantidad de personas -->
+        <div class="form-floating mt-3">
+          <input class="form-control" 
+                 formControlName="limit"
+                 placeholder="Maximo de personas" 
+                 type="text">
+          <label for="floatingInput">Límite de personas</label>
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('limit')">
+          {{ validateLimit }}
+        </div>
+
+        <!-- Estado -->
+        <div class="form-floating mt-3">
+          <select class="form-select" formControlName="state">
+            <option *ngFor="let state of states" [value]="state.id"> {{ state.name | titlecase }} </option>
+          </select>
+          <label for="floatingSelectGrid">Ubicación (Estado)</label>
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('state')">
+          {{ errorMessage('state') }}
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-floating mt-3">
+          <textarea class="form-control" 
+                    formControlName="description"
+                    placeholder="Describe lo que incluye el paquete">
+          </textarea>
+          <label for="floatingTextarea">Descripción</label>
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('description')">
+          {{ validateMinMax('description', 50, 500) }}
+        </div>
+
+        <!-- Imagen de portada -->
+        <div class="form-floating mt-3">
+          <input class="form-control" 
+                 formControlName="coverImage"
+                 placeholder="Maximo de personas" 
+                 type="file">
+          <label for="floatingInput">Imagen de portada</label>
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('coverImage')">
+          {{ errorMessage('coverImage') }}
+        </div>
+
+        <!-- Imágenes adicionales -->
+        <div class="form-floating mt-3">
+          <input class="form-control" 
+                 formControlName="additionalImages"
+                 placeholder="Maximo de personas" 
+                 multiple 
+                 type="file">
+          <label for="floatingInput">Imagenes adicionales</label>
+        </div>
+        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('additionalImages')">
+          {{ errorMessage('additionalImages') }}
+        </div>
+
+        <!-- Agregar -->
+        <div class="add-button wt-100">
+          <button class="blue-button bg-blue-2 ft-white" [disabled]="form.invalid">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<app-footer class="wt-100"></app-footer>

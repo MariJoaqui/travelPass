@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 
 // Interfaces
-import { States } from '../interfaces/interfaces';
+import { CardItems, Image, States } from '../interfaces/interfaces';
 
 
 @Injectable({
@@ -19,8 +19,16 @@ export class SharedService {
   constructor( private http: HttpClient ) { }
 
   // Funciones
+  getMyPublications( id_user : number ): Observable<CardItems[]> {
+    return this.http.get<CardItems[]>(`${ this._url }/procesos/getMisPublicaciones.php?id_user=${ id_user }`);
+  }
+
+  getPublications(): Observable<CardItems[]> {
+    return this.http.get<CardItems[]>(`${ this._url }/procesos/getPublicaciones.php`);
+  }
+
   getStates(): Observable<States[]> {
-    return this.http.get<States[]>(`${this._url}/procesos/getEstados.php`);
+    return this.http.get<States[]>(`${ this._url }/procesos/getEstados.php`);
   }
 
 }
