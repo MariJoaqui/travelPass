@@ -1,8 +1,8 @@
 // Cartas informativas
 export interface CardItems {
   id               : number,
-  id_profile?      : number,
-  id_state?        : number,
+  id_profile       : number,
+  id_state         : number,
   image            : any,
   title            : string,
   description      : string,

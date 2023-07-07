@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 
 // Interfaces
-import { CardItems, Image, States } from '../interfaces/interfaces';
+import { CardItems, States } from '../interfaces/interfaces';
 
 
 @Injectable({
@@ -20,15 +20,27 @@ export class SharedService {
 
   // Get
   getMyPublications( id_user : number ): Observable<CardItems[]> {
-    return this.http.get<CardItems[]>(`${ this._url }/procesos/getMisPublicaciones.php?id_user=${ id_user }`);
+    return this.http.get<CardItems[]>( `${ this._url }/procesos/getMisPublicaciones.php?id_user=${ id_user }` );
   }
 
   getPublications(): Observable<CardItems[]> {
-    return this.http.get<CardItems[]>(`${ this._url }/procesos/getPublicaciones.php`);
+    return this.http.get<CardItems[]>( `${ this._url }/procesos/getPublicaciones.php` );
+  }
+
+  getPublicationsById( id : number ): Observable<CardItems> {
+    return this.http.get<CardItems>( `${ this._url }/procesos/getPublicacionesPorId.php?id=${ id }` );
   }
 
   getStates(): Observable<States[]> {
-    return this.http.get<States[]>(`${ this._url }/procesos/getEstados.php`);
+    return this.http.get<States[]>( `${ this._url }/procesos/getEstados.php` );
+  }
+
+  getStateById( id : number ): Observable<string> {
+    return this.http.get<string>( `${ this._url }/procesos/getEstadosPorId.php?id=${ id }` );
+  }
+
+  getUserById( id : number ): Observable<string> {
+    return this.http.get<string>( `${ this._url }/procesos/getUsuarioPorId.php?id=${ id }` );
   }
 
   // Post

@@ -33,7 +33,7 @@
       <div class="card-body">
         {{ card.title }}
       </div>
-      <a class="blue-button bg-blue-2 ft-white">
+      <a class="blue-button bg-blue-2 ft-white" [routerLink]="['/dashboard/publication-details', card.id ]">
         Ver
       </a>
     </div>

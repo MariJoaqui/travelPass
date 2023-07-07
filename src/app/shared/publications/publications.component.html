@@ -1,0 +1,30 @@
+<!-- Nav -->
+<app-dashboard-nav></app-dashboard-nav>
+
+<!-- Body -->
+<div class="body">
+  <div class="padding">
+    <!-- Volver -->
+    <app-go-back></app-go-back>
+
+    <div class="display-flex information">
+      <div>
+        <h4 class="ft-blue-1">{{ publications.title }}</h4>
+        <div class="divider-md bg-blue-3 mb-4"></div>
+        <div class="divider-sm bg-blue-3 display-none"></div>
+        <p>{{ publications.description }}</p>
+        <p>Estado {{ state.name | titlecase }}, Venezuela.</p>
+        <p>{{ publications.price + '$'}} - {{ publications.limit + ' personas.' }}</p>
+        <p>Contacto: {{ userEmail.email }}</p>
+        <p class="ft-gray-3">Publicado el: {{ publications.publicationDate | date:'dd/MM/yyyy' }}</p>
+      </div>
+      <div class="image">
+        <img [src]="publications.image">
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Footer -->
+<app-footer class="wt-100"></app-footer>

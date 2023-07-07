@@ -31,12 +31,14 @@
         <img [src]="card.image" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">{{ card.title }}</h5>
-          <p class="card-text">{{ card.description }}</p>
-          <p class="card-text"><small class="text-body-secondary">{{ card.publicationDate }}</small></p>
+          <p class="card-text">{{ card.price + '$' }} - {{ card.limit + ' personas.' }}</p>
+          <p class="card-text"><small class="text-body-secondary">{{ card.publicationDate | date:'dd/MM/yyyy' }}</small></p>
         </div>
-        <!-- <button class="btn btn-pimary">
-          ver mas
-        </button> -->
+        <div class="card-footer text-center">
+          <a [routerLink]="['/dashboard/publication-details', card.id ]">
+            Detalles
+          </a>
+        </div>
       </div>
     </div>
   </div>
