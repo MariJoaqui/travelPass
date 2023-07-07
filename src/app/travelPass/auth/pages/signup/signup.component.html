@@ -33,13 +33,13 @@
             </div>
           </div>
           <div>
-            <div class="display-block">
-              <select class="form-select form-select-lg mt-3" formControlName="state">
-                <option disabled selected hidden>-- Estado de residencia --</option>
+            <div class="form-floating  mt-3">
+              <select class="form-select" formControlName="state">
                 <option *ngFor="let state of states" [value]="state.id">
-                  {{ state.name | uppercase }}
+                  {{ state.name | titlecase }}
                 </option>
               </select>
+              <label for="floatingSelectGrid">Ubicación (Estado)</label>
             </div>
             <div class="ft-red-1 text-start mt-1 mb-2" *ngIf="invalidField('state')">
               {{ errorMessage('state') }}

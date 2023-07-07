@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 // Services
@@ -18,10 +19,12 @@ import { States } from 'src/app/shared/interfaces/interfaces';
 export class AddPublicationComponent {
 
   // Variables y arreglos
-  states : States[] = [];
+  coverImage       : SafeUrl = '';
+  states           : States[] = [];
 
   // Servicios
   constructor( 
+    private domSanitizer  : DomSanitizer,
     private fb            : FormBuilder,
     private router        : Router,
     private sharedService : SharedService,
@@ -31,12 +34,11 @@ export class AddPublicationComponent {
   // Formulario y validaciones
   form: FormGroup = this.fb.group({  
     title            : [ '', [ Validators.required, Validators.minLength(10), Validators.maxLength(100) ] ],
-    price            : [ '', [ Validators.required, Validators.maxLength(2), Validators.pattern( this.Validator.priceFormat ) ] ],
+    price            : [ '', [ Validators.required, Validators.minLength(2), Validators.pattern( this.Validator.priceFormat ) ] ],
     limit            : [ '', [ Validators.required, Validators.maxLength(1), Validators.pattern( this.Validator.numberFormat ) ] ],
     state            : [ '', [ Validators.required ] ],
     description      : [ '', [ Validators.required, Validators.minLength(50), Validators.maxLength(500) ] ],
-    coverImage       : [ '', [ Validators.required ] ],
-    additionalImages : [ '', [ Validators.required ] ]
+    coverImage       : [ '', [ Validators.required ] ]
   });
 
   ngOnInit(): void {
@@ -74,8 +76,8 @@ export class AddPublicationComponent {
     return '';
   }
 
-  validateLimit( fieldName : string, maxLength : number ) {
-    const field = this.form.get( fieldName );
+  get validateLimit() {
+    const field = this.form.get( 'limit' );
   
     if ( field?.errors?.['required'] ) {
       return 'El campo es obligatorio.';
@@ -84,12 +86,48 @@ export class AddPublicationComponent {
       return `Debe contener máximo 1 caracter.`;
     }
     else if ( field?.errors?.['pattern'] ) {
-      return 'El formato es incorrecto. Solo valores del 1 al 9.'
+      return 'El formato es incorrecto. Solo valores del 1 al 8.';
     }
     return '';
   }
 
-  submit() {
+  get validatePrice() {
+    const field = this.form.get( 'price' );
+  
+    if ( field?.errors?.['required'] ) {
+      return 'El campo es obligatorio.';
+    }
+    else if ( field?.errors?.['minlength'] ) {
+      return `Debe contener máximo 2 caracteres.`;
+    }
+    else if ( field?.errors?.['pattern'] ) {
+      return 'Solo valores del 10 en adelante y solo se aceptan 2 decimales.';
+    }
+    return '';
+  }
 
+  onCoverImageChange( event : any ): void {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64Image = reader.result as string;
+      this.coverImage = base64Image;
+      console.log( 'Cover image:', base64Image );
+    };
+    reader.readAsDataURL( file );
+  }
+
+  submit() {
+    const id_profile  = parseInt( localStorage.getItem('id') ?? '0' );
+    const title       = this.form.get('title')?.value;
+    const price       = this.form.get('price')?.value;
+    const limit       = this.form.get('limit')?.value; 
+    const id_state    = this.form.get('state')?.value; 
+    const description = this.form.get('description')?.value;
+    
+    this.sharedService.postPublications( id_state, id_profile, this.coverImage, title, description, limit, price ).subscribe( response => {
+      console.log(response);
+    })
+    
   }
 }

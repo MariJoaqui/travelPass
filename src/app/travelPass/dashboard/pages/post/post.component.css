@@ -48,3 +48,36 @@
   cursor: pointer;
   padding: 0.5rem 1rem;
 }
+
+/* Pantallas pequeñas */
+@media (max-width: 900px) {
+
+  /* Globales */
+  h3 {
+    font-size: 1.5rem;
+  }
+  .padding {
+    padding: 2rem 2.3rem;
+  }
+
+  /* Body */
+  .tb-flex {
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+  }
+  .search {
+    margin: 2rem 0 0 0;
+    width: 100%;
+  }
+  .divider-md {
+    display: none;
+  }
+  .divider-sm {
+    display: block;
+  }
+  .form {
+    margin-top: 2rem;
+  }
+
+}

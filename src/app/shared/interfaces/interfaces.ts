@@ -6,7 +6,7 @@ export interface CardItems {
   image            : any,
   title            : string,
   description      : string,
-  limit            : string,      
+  limit            : number,      
   price            : string,
   publicationDate? : string,
   ubication?       : string,

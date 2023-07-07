@@ -34,10 +34,10 @@
                  formControlName="price"
                  placeholder="Valor del paquete"
                  type="text">
-          <label for="floatingInput">Precio</label>
+          <label for="floatingInput">Precio (en dólares)</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('price')">
-          {{ errorMessage('price') }}
+          {{ validatePrice }}
         </div>
 
         <!-- Cantidad de personas -->
@@ -80,24 +80,12 @@
           <input class="form-control" 
                  formControlName="coverImage"
                  placeholder="Maximo de personas" 
-                 type="file">
+                 type="file"
+                 (change)="onCoverImageChange($event)">
           <label for="floatingInput">Imagen de portada</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('coverImage')">
           {{ errorMessage('coverImage') }}
-        </div>
-
-        <!-- Imágenes adicionales -->
-        <div class="form-floating mt-3">
-          <input class="form-control" 
-                 formControlName="additionalImages"
-                 placeholder="Maximo de personas" 
-                 multiple 
-                 type="file">
-          <label for="floatingInput">Imagenes adicionales</label>
-        </div>
-        <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('additionalImages')">
-          {{ errorMessage('additionalImages') }}
         </div>
 
         <!-- Agregar -->
