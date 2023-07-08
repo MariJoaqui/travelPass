@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddPublicationComponent } from './pages/add-publication/add-publication.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostComponent } from './pages/post/post.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { PublicationsComponent } from 'src/app/shared/publications/publications.component';
-import { SavedComponent } from './pages/saved/saved.component';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'post', component: PostComponent },
-      { path: 'saved', component: SavedComponent },
+      { path: 'profiles', component: ProfileComponent },
       { path: 'new-publication', component: AddPublicationComponent },
       { path: 'publication-details/:id', component: PublicationsComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' }

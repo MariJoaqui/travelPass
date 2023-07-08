@@ -5,18 +5,16 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 // Interfaces
-import { CardItems } from 'src/app/shared/interfaces/interfaces';
+import { User } from 'src/app/shared/interfaces/interfaces';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
-  // Variables y arreglos
-  cards  : CardItems[] = [];
-  states : string[] = [];
+  users : User[] = [];
 
   constructor( 
     private domSanitizer  : DomSanitizer,
@@ -24,10 +22,10 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sharedService.getPublications().subscribe( response => {
-      this.cards = response.map( card => {
-        const safeImageUrl = this.convertBase64ToSafeUrl( card.image );
-        return { ...card, safeImageUrl };
+    this.sharedService.getUsers().subscribe( response => {
+      this.users = response.map( user => {
+        const safeImageUrl = this.convertBase64ToSafeUrl( user.profile_photo );
+        return { ...user, safeImageUrl };
       });
       console.log(response);
     });

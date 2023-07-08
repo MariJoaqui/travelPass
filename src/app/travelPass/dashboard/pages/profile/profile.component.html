@@ -1,0 +1,50 @@
+<!-- Nav -->
+<app-dashboard-nav></app-dashboard-nav>
+
+<!-- Body -->
+<div class="body">
+  <div class="padding">
+    <!-- Volver -->
+    <app-go-back></app-go-back>
+
+    <div class="display-flex mt-5">
+      <!-- Título -->
+      <div class="title">
+        <h3 class="ft-blue-1">Nuestros usuarios</h3>
+        <div class="divider-md bg-blue-3"></div>
+        <div class="divider-sm bg-blue-3 display-none"></div>
+      </div>
+
+      <!-- Buscador -->
+      <div class="input-group mb-3 search">
+        <input 
+          type="text" 
+          class="form-control form-control-lg" 
+          placeholder="Buscar" 
+        >
+        <span class="input-group-text">
+          <i class="fa-solid fa-magnifying-glass ft-blue-2"></i>
+        </span>
+      </div>
+    </div>
+    
+    <!-- Cartas -->
+    <div class="card-container mt-5">
+      <div class="card" *ngFor="let user of users">
+        <img [src]="user.profile_photo" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.name + ' ' + user.lastName | titlecase }} </h5>
+          <p class="card-text"><small class="text-body-secondary">{{ user.email }}</small></p>
+        </div>
+        <div class="card-footer text-center">
+          <a>
+            Detalles
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<app-footer class="wt-100"></app-footer>

@@ -9,7 +9,7 @@
 
     <div class="display-flex information">
       <div>
-        <h4 class="ft-blue-1">{{ publications.title }}</h4>
+        <h4 class="ft-blue-1">{{ publications.title | titlecase }}</h4>
         <div class="divider-md bg-blue-3 mb-4"></div>
         <div class="divider-sm bg-blue-3 display-none"></div>
         <p>{{ publications.description }}</p>
@@ -22,7 +22,6 @@
         <img [src]="publications.image">
       </div>
     </div>
-    
   </div>
 </div>
 

@@ -6,7 +6,7 @@ export interface CardItems {
   image            : any,
   title            : string,
   description      : string,
-  limit            : number,      
+  limit            : number,  
   price            : string,
   publicationDate? : string,
   ubication?       : string,
@@ -53,11 +53,12 @@ export interface SocialMedia {
 
 // Usuarios
 export interface User {
-  id         : number,
-  id_state?  : number, 
-  name       : string,
-  lastName   : string,
-  email      : string,
-  password?  : string,
+  id            : number,
+  id_state      : number, 
+  name          : string,
+  lastName      : string,
+  email         : string,
+  password      : string,
+  profile_photo : string
 }
 

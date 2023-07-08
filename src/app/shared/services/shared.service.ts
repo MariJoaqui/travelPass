@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 
 // Interfaces
-import { CardItems, States } from '../interfaces/interfaces';
+import { CardItems, States, User } from '../interfaces/interfaces';
 
 
 @Injectable({
@@ -37,6 +37,10 @@ export class SharedService {
 
   getStateById( id : number ): Observable<string> {
     return this.http.get<string>( `${ this._url }/procesos/getEstadosPorId.php?id=${ id }` );
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>( `${ this._url }/procesos/getUsuarios.php` );
   }
 
   getUserById( id : number ): Observable<string> {

@@ -21,7 +21,7 @@
           <a class="nav-link ft-gray-2" [routerLink]="item.link"> {{ item.item }} </a>
         </li>
         <li class="login-button bg-blue-1">
-          <a class="nav-link ft-white" routerLink="/auth/login">Salir</a>
+          <a class="nav-link ft-white" (click)="logout()">Cerrar sesión</a>
         </li>
       </ul>
     </div>

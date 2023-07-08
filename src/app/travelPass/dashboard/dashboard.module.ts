@@ -8,17 +8,17 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 // Componentes
+import { AddPublicationComponent } from './pages/add-publication/add-publication.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostComponent } from './pages/post/post.component';
-import { SavedComponent } from './pages/saved/saved.component';
-import { AddPublicationComponent } from './pages/add-publication/add-publication.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
+    AddPublicationComponent,
     DashboardComponent,
     PostComponent,
-    SavedComponent,
-    AddPublicationComponent
+    ProfileComponent
   ],
   imports: [
     CommonModule,
