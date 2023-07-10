@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 // Services
 import { AuthService } from '../../services/auth.service';
@@ -53,17 +54,27 @@ export class LoginComponent {
 
       // Validar el ingreso
       if ( response.success == true ) {
-
-        // Guardar el id del usuario en el local storage
-        localStorage.setItem('id', response.user.id.toString());
-        console.log(response.user);
-        
-        // Ruta luego del acceso 
-        this.router.navigate(['/dashboard']);
-        
+        Swal.fire({
+          icon: 'success',
+          title: '¡Bienvenido a TravelPass!',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          // Guardar el id del usuario en el local storage
+          localStorage.setItem('id', response.user.id.toString());
+          console.log( response.user );
+              
+          // Ruta luego del acceso 
+          this.router.navigate(['/dashboard']);
+        });
       } 
       else {
-        // Colocar un mensaje de error
+        Swal.fire({
+          icon: 'error',
+          text: 'Los datos ingresados son incorrectos.'
+        }).then(() => {
+          this.form.reset();
+        });
         console.log('Datos incorrectos');
       }
       
