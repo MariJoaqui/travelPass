@@ -18,6 +18,7 @@
           type="text" 
           class="form-control form-control-lg" 
           placeholder="Buscar" 
+          [(ngModel)]="searchText"
         >
         <span class="input-group-text">
           <i class="fa-solid fa-magnifying-glass ft-blue-2"></i>
@@ -27,7 +28,7 @@
     
     <!-- Cartas -->
     <div class="card-container mt-5">
-      <div class="card" *ngFor="let card of cards">
+      <div class="card" *ngFor="let card of filterCards().reverse()">
         <img [src]="card.image" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">{{ card.title }}</h5>

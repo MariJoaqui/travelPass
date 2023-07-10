@@ -21,6 +21,7 @@
           type="text" 
           class="form-control form-control-lg" 
           placeholder="Buscar" 
+          [(ngModel)]="searchText"
         >
         <span class="input-group-text">
           <i class="fa-solid fa-magnifying-glass ft-blue-2"></i>
@@ -29,7 +30,7 @@
     </div>
 
     <!-- Cartas -->
-    <div class="card bg-blue-5 display-flex" *ngFor="let card of cards">
+    <div class="card bg-blue-5 display-flex" *ngFor="let card of filterCards().reverse()">
       <div class="card-body">
         {{ card.title }}
       </div>

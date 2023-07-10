@@ -14,7 +14,9 @@ import { User } from 'src/app/shared/interfaces/interfaces';
 })
 export class ProfileComponent implements OnInit {
 
-  users : User[] = [];
+  // Variables y arreglos
+  searchText : string = '';
+  users      : User[] = [];
 
   constructor( 
     private domSanitizer  : DomSanitizer,
@@ -34,6 +36,13 @@ export class ProfileComponent implements OnInit {
   convertBase64ToSafeUrl( base64Image : string ): SafeUrl {
     const imageUrl = 'data:image/jpeg;base64,' + base64Image;
     return this.domSanitizer.bypassSecurityTrustUrl( imageUrl );
+  }
+
+  filterCards(): User[] {
+    return this.users.filter( ( user ) =>
+      user.name.toLowerCase().includes( this.searchText.toLowerCase() ) || 
+      user.lastName.toLowerCase().includes( this.searchText.toLowerCase() )
+    );
   }
 
 }

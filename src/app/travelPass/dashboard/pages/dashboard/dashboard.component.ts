@@ -15,8 +15,9 @@ import { CardItems } from 'src/app/shared/interfaces/interfaces';
 export class DashboardComponent implements OnInit {
 
   // Variables y arreglos
-  cards  : CardItems[] = [];
-  states : string[] = [];
+  cards      : CardItems[] = [];
+  searchText : string = '';
+  states     : string[] = [];
 
   constructor( 
     private domSanitizer  : DomSanitizer,
@@ -36,6 +37,12 @@ export class DashboardComponent implements OnInit {
   convertBase64ToSafeUrl( base64Image : string ): SafeUrl {
     const imageUrl = 'data:image/jpeg;base64,' + base64Image;
     return this.domSanitizer.bypassSecurityTrustUrl( imageUrl );
+  }
+
+  filterCards(): CardItems[] {
+    return this.cards.filter( ( card ) =>
+      card.title.toLowerCase().includes( this.searchText.toLowerCase() )
+    );
   }
 
 }

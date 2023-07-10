@@ -14,7 +14,8 @@ import { CardItems } from 'src/app/shared/interfaces/interfaces';
 export class PostComponent implements OnInit {
 
   // Variables y arreglos
-  cards    : CardItems[] = [];
+  cards      : CardItems[] = [];
+  searchText : string = '';
 
   constructor( private sharedService : SharedService ) {}
 
@@ -25,6 +26,12 @@ export class PostComponent implements OnInit {
       this.cards = response;
       console.log( response );
     });
+  }
+
+  filterCards(): CardItems[] {
+    return this.cards.filter( ( card ) =>
+      card.title.toLowerCase().includes( this.searchText.toLowerCase() )
+    );
   }
 
 }
