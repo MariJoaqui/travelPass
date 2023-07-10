@@ -60,6 +60,7 @@ export interface User {
   phoneNumber : string,
   email       : string,
   password    : string,
-  image       : any
+  image       : any,
+  success?    : boolean
 }
 
