@@ -60,9 +60,7 @@ export class SharedService {
     };
     
     return this.http.post<CardItems>( `${ this._url }/procesos/nuevaPublicacion.php`, JSON.stringify(data), {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }
 

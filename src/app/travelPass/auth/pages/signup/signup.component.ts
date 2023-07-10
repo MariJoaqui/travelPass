@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 // Services
@@ -18,6 +19,7 @@ import { States } from 'src/app/shared/interfaces/interfaces';
 export class SignupComponent implements OnInit {
 
   // Variables y arreglos
+  image  : SafeUrl = '';
   states : States[] = [];
 
   // Servicios
@@ -31,12 +33,14 @@ export class SignupComponent implements OnInit {
 
   // Formulario y validaciones
   form: FormGroup = this.fb.group({  
-    name      : [ '', [ Validators.required, Validators.pattern( this.Validator.nameFormat ) ] ],
-    lastName  : [ '', [ Validators.required, Validators.pattern( this.Validator.nameFormat ) ] ],
-    state     : [ '', [ Validators.required ] ],
-    email     : [ '', [ Validators.required, Validators.pattern( this.Validator.emailFormat ) ] ],
-    password1 : [ '', [ Validators.required, Validators.minLength(8), Validators.maxLength(18) ] ],
-    password2 : [ '', [ Validators.required ] ]
+    name        : [ '', [ Validators.required, Validators.pattern( this.Validator.nameFormat ) ] ],
+    lastName    : [ '', [ Validators.required, Validators.pattern( this.Validator.nameFormat ) ] ],
+    state       : [ '', [ Validators.required ] ],
+    email       : [ '', [ Validators.required, Validators.pattern( this.Validator.emailFormat ) ] ],
+    phoneNumber : [ '', [ Validators.required, Validators.maxLength(11), Validators.pattern( this.Validator.phoneFormat ) ] ],
+    password1   : [ '', [ Validators.required, Validators.minLength(8), Validators.maxLength(18) ] ],
+    password2   : [ '', [ Validators.required ] ],
+    image       : [ '', [ Validators.required ] ]
   },
   {
     validators: [ this.Validator.equalFields( 'password1', 'password2' ) ]
@@ -62,6 +66,21 @@ export class SignupComponent implements OnInit {
     return '';
   }
 
+  get validatePhoneNumber() {
+    const field = this.form.get( 'phoneNumber' );
+  
+    if ( field?.errors?.['required'] ) {
+      return 'El campo es obligatorio.';
+    }
+    else if ( field?.errors?.['maxlength'] ) {
+      return `Debe contener máximo 11 caracteres.`;
+    }
+    else if ( field?.errors?.['pattern'] ) {
+      return 'El formato es incorrecto. Solo se aceptan números.';
+    }
+    return '';
+  }
+
   get validatePassword1() {
     const field = this.form.get('password1');
 
@@ -77,14 +96,25 @@ export class SignupComponent implements OnInit {
     return '';
   }
 
-  signup() {
-    const name     = this.form.get('name')?.value;
-    const lastName = this.form.get('lastName')?.value;
-    const state    = this.form.get('state')?.value;
-    const email    = this.form.get('email')?.value;
-    const password = this.form.get('password2')?.value;
+  onImageChange( event : any ): void {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64Image = reader.result as string;
+      this.image = base64Image;
+    };
+    reader.readAsDataURL( file );
+  }
 
-    this.authService.signup( state, name, lastName, email, password ).subscribe( response => { 
+  signup() {
+    const name        = this.form.get('name')?.value;
+    const lastName    = this.form.get('lastName')?.value;
+    const state       = this.form.get('state')?.value;
+    const phoneNumber = this.form.get('phoneNumber')?.value;
+    const email       = this.form.get('email')?.value;
+    const password    = this.form.get('password2')?.value;
+
+    this.authService.signup( state, name, lastName, phoneNumber, email, password, this.image ).subscribe( response => { 
       console.log( response );
     })
   }

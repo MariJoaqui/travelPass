@@ -8,79 +8,82 @@
     <div class="form">
       <form [formGroup]="form" (ngSubmit)="signup()">
         <div class="display-flex">
+
+          <!-- Nombre -->
           <div>
-            <div>
-              <input 
-                class="form-control form-control-lg" 
-                formControlName="name" 
-                placeholder="Nombre" 
-                type="text"
-              >
-            </div>
-            <div class="ft-red-1 text-start mt-1 mb-2" *ngIf="invalidField('name')">
-              {{ errorMessage('name') }}
-            </div>
-            <div class="mt-3">
-              <input 
-                type="text" 
-                class="form-control form-control-lg" 
-                placeholder="Apellido"
-                formControlName="lastName"
-              >
-            </div>
-            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('lastName')">
-              {{ errorMessage('lastName') }}
-            </div>
+            <input class="form-control form-control-lg" 
+                   formControlName="name" 
+                   placeholder="Nombre" 
+                   type="text">
           </div>
-          <div>
-            <div class="form-floating  mt-3">
-              <select class="form-select" formControlName="state">
-                <option *ngFor="let state of states" [value]="state.id">
-                  {{ state.name | titlecase }}
-                </option>
-              </select>
-              <label for="floatingSelectGrid">Ubicación (Estado)</label>
-            </div>
-            <div class="ft-red-1 text-start mt-1 mb-2" *ngIf="invalidField('state')">
-              {{ errorMessage('state') }}
-            </div>
-            <div class="mt-3">
-              <input 
-                type="email" 
-                class="form-control form-control-lg" 
-                placeholder="Correo electrónico"
-                formControlName="email"
-              >
-            </div>
-            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('email')">
-              {{ errorMessage('email') }}
-            </div>
+          <div class="ft-red-1 text-start mt-1 mb-2" *ngIf="invalidField('name')"> {{ errorMessage('name') }} </div>
+
+          <!-- Apellido -->
+          <div class="mt-3">
+            <input class="form-control form-control-lg" 
+                   formControlName="lastName"
+                   placeholder="Apellido"
+                   type="text">
           </div>
-          <div>
-            <div class="mt-3 display-block">
-              <input 
-                type="password" 
-                class="form-control form-control-lg" 
-                placeholder="Contraseña"
-                formControlName="password1"
-              >
-            </div>
-            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('password1')">
-              {{ validatePassword1 }}
-            </div>
-            <div class="mt-3">
-              <input 
-                type="password" 
-                class="form-control form-control-lg" 
-                placeholder="Confirmar contraseña"
-                formControlName="password2"
-              >
-            </div>
-            <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('password2')">
-              La contraseña deb coincidir con la anterior.
-            </div>
+          <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('lastName')"> {{ errorMessage('lastName') }} </div>
+
+          <!-- Estados -->
+          <div class="form-floating  mt-3">
+            <select class="form-select" formControlName="state">
+              <option *ngFor="let state of states" [value]="state.id"> {{ state.name | titlecase }} </option>
+            </select>
+            <label for="floatingSelectGrid">Ubicación (Estado)</label>
           </div>
+          <div class="ft-red-1 text-start mt-1 mb-2" *ngIf="invalidField('state')"> {{ errorMessage('state') }} </div>
+
+          <!-- Teléfono -->
+          <div class="mt-3">
+            <input class="form-control form-control-lg" 
+                   formControlName="phoneNumber"
+                   placeholder="Teléfono"
+                   type="text">
+          </div>
+          <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('phoneNumber')"> {{ validatePhoneNumber }} </div>
+
+          <!-- Correo -->
+          <div class="mt-3">
+            <input class="form-control form-control-lg" 
+                   formControlName="email"
+                   placeholder="Correo electrónico"
+                   type="email">
+          </div>
+          <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('email')"> {{ errorMessage('email') }} </div>
+          
+          <!-- Contraseña 1 -->
+          <div class="mt-3 display-block">
+            <input class="form-control form-control-lg" 
+                   formControlName="password1"
+                   placeholder="Contraseña"
+                   type="password">
+          </div>
+          <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('password1')"> {{ validatePassword1 }} </div>
+            
+          <!-- Contraseña 2 -->
+          <div class="mt-3">
+            <input class="form-control form-control-lg" 
+                   formControlName="password2"
+                   placeholder="Confirmar contraseña"
+                   type="password">
+          </div>
+          <div class="ft-red-1 text-start mt-1" *ngIf="invalidField('password2')">La contraseña deb coincidir con la anterior.</div>
+           
+          <!-- Foto perfil -->
+          <div class="form-floating mt-3">
+            <input class="form-control" 
+                   formControlName="image"
+                   type="file"
+                   (change)="onImageChange($event)">
+            <label for="floatingInput">Imagen de perfil</label>
+          </div>
+          <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('image')"> {{ errorMessage('image') }} </div>
         </div>
+
+        <!-- Ingresar -->
         <button class="mt-3 wt-100 ft-white bg-blue-3" [disabled]="form.invalid">
           Registrarse
         </button>
@@ -96,6 +99,5 @@
         </a>
       </p>
     </div>
-
   </div>
 </div>

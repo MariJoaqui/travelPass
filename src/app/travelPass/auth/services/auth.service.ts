@@ -35,14 +35,17 @@ export class AuthService {
   }  
 
   // Registro
-  signup( state : number, name : string, lastName : string, email : string, password : string ): Observable<User> {
+  signup( state : number, name : string, lastName : string, phoneNumber : string, email : string, password : string, image : any ): Observable<User> {
     const data = {
-      state    : state,
-      name     : name,
-      lastName : lastName,
-      email    : email,
-      password : password
+      state       : state,
+      name        : name,
+      lastName    : lastName,
+      phoneNumber : phoneNumber,
+      email       : email,
+      password    : password,
+      image       : image
     }
+    
     return this.http.post<User>(`${ this._url }/procesos/nuevoUsuario.php`, JSON.stringify( data ), {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });

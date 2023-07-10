@@ -53,12 +53,13 @@ export interface SocialMedia {
 
 // Usuarios
 export interface User {
-  id            : number,
-  id_state      : number, 
-  name          : string,
-  lastName      : string,
-  email         : string,
-  password      : string,
-  profile_photo : string
+  id          : number,
+  id_state    : number, 
+  name        : string,
+  lastName    : string,
+  phoneNumber : string,
+  email       : string,
+  password    : string,
+  image       : any
 }
 

@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.sharedService.getUsers().subscribe( response => {
       this.users = response.map( user => {
-        const safeImageUrl = this.convertBase64ToSafeUrl( user.profile_photo );
+        const safeImageUrl = this.convertBase64ToSafeUrl( user.image );
         return { ...user, safeImageUrl };
       });
       console.log(response);
