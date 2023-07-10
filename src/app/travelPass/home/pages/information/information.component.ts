@@ -15,10 +15,10 @@ export class InformationComponent implements OnInit {
 
   // Preguntas frecuentes
   faqs: Faqs[] = [
-    { title: 'Pregunta 1', description: 'respuesta pregunta 1' },
-    { title: 'Pregunta 2', description: 'respuesta pregunta 2' },
-    { title: 'Pregunta 3', description: 'respuesta pregunta 3' },
-    { title: 'Pregunta 4', description: 'respuesta pregunta 4' }
+    { title: '¿Quién puede publicar el TravelPass?', description: 'TravelPass es una plataforma en la que pueden interactuar tanto empresas (hoteles o posadas) como personas que cuenten con alguna propiedad en algún sitio turistico de Venezuela que desean poner en alquiler por noches.' },
+    { title: '¿Quién coloca los precios y planes?', description: 'Cada uno de los usuarios que hacen vida en nuestra plataforma son los encargados de escoger el precio que desean colocarle a sus propiedades, igualmente ocurre con los planes.' },
+    { title: '¿Cuántas publicaciones se pueden realizar?', description: 'No existe un límite de publicaciones a realizar por el momento.' },
+    { title: '¿De qué forma me puedo comunicar con los usuarios?', description: 'Para registrarte en TravelPass es necesario que ingreses tu correo electrónico y coloques un número telefónico para que los usuarios puedan contactarte.' }
   ];
 
   // Mantiene abierta la primera pregunta cadfa vez que se inicia 
