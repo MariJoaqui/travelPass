@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GoBackComponent } from './go-back/go-back.component';
 import { LogoNameComponent } from './logo-name/logo-name.component';
 import { PublicationsComponent } from './publications/publications.component';
+import { FooterSmComponent } from './footer-sm/footer-sm.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { PublicationsComponent } from './publications/publications.component';
     FooterComponent,
     GoBackComponent,
     LogoNameComponent,
-    PublicationsComponent
+    PublicationsComponent,
+    FooterSmComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { PublicationsComponent } from './publications/publications.component';
   exports: [
     DashboardNavComponent,
     FooterComponent,
+    FooterSmComponent,
     GoBackComponent,
     LogoNameComponent,
     PublicationsComponent

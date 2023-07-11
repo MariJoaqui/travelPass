@@ -13,7 +13,10 @@
   margin-top: 0.4rem;
   list-style-type: none;
 }
-.body li:hover {
+.body li a {
+  text-decoration: none;
+}
+.body li a:hover {
   color: #000000;
 }
 .body i {

@@ -1,0 +1,35 @@
+<div class="footer wt-100">
+  
+  <!-- Parte gris -->
+  <div class="body bg-gray-2">
+    <div class="row">
+      <div class="col links">
+        <h4>TavelPass</h4>
+        <div class="divider-sm bg-black"></div>
+        <ul>
+          <li class="ft-gray-1" *ngFor="let item of navItems">
+            <a class="ft-gray-1" [routerLink]="item.link"> {{ item.item }} </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li class="ft-gray-1" *ngFor="let item of socialMedia">
+            <a>
+              <i class="ft-gray-1" [class]="item.icon"></i>
+              {{ item.name }}
+            </a>
+          </li>
+        </ul>
+     </div>
+      <div class="col display-flex footer-image">
+        <img src="../../../assets/img/logos/logo.png">
+      </div>
+    </div>
+  </div>
+
+  <!-- Parte negra -->
+  <div class="foot bg-black">
+    <p class="ft-white">©2023 TavelPass.</p>
+  </div>
+</div>
