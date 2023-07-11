@@ -43,8 +43,8 @@ export class SharedService {
     return this.http.get<User[]>( `${ this._url }/procesos/getUsuarios.php` );
   }
 
-  getUserById( id : number ): Observable<string> {
-    return this.http.get<string>( `${ this._url }/procesos/getUsuarioPorId.php?id=${ id }` );
+  getUserById( id : number ): Observable<string[]> {
+    return this.http.get<string[]>( `${ this._url }/procesos/getUsuarioPorId.php?id=${ id }` );
   }
 
   // Post

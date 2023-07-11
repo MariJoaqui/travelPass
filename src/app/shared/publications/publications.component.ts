@@ -17,7 +17,7 @@ export class PublicationsComponent implements OnInit {
 
   publications! : CardItems;
   state!        : any;
-  userEmail!    : any;
+  user          : any;
 
   constructor ( 
     private activateRoute : ActivatedRoute,
@@ -36,7 +36,7 @@ export class PublicationsComponent implements OnInit {
       });
 
       this.sharedService.getUserById( response.id_profile ).subscribe( response => {
-        this.userEmail = response;
+        this.user = response;
       });
     });
   }

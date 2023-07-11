@@ -15,8 +15,16 @@
         <p>{{ publications.description }}</p>
         <p>Estado {{ state.name | titlecase }}, Venezuela.</p>
         <p>{{ publications.price + '$'}} - {{ publications.limit + ' personas.' }}</p>
-        <p>Contacto: {{ userEmail.email }}</p>
-        <p class="ft-gray-3">Publicado el: {{ publications.publicationDate | date:'dd/MM/yyyy' }}</p>
+        <p class="ft-gray-3">Publicado: {{ publications.publicationDate | date:'MMMM d, y':'es' | titlecase }}</p>
+        <div class="display-flex icons">
+          <p class="ft-gray-3">Contacto:</p>
+          <a [href]="['https://wa.me/58' + user.phoneNumber]" target="_blank">
+            <i class="fa-brands fa-whatsapp ft-green-1"></i>
+          </a>
+          <a [href]="'mailto:' + user.email">
+            <i class="fa-solid fa-envelope ft-blue-1"></i>
+          </a>
+        </div>
       </div>
       <div class="image">
         <img [src]="publications.image">
