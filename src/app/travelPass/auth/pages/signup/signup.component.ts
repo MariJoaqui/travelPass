@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+
+// Librerías
 import Swal from 'sweetalert2';
 
 // Services
@@ -117,8 +119,7 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup( state, name, lastName, phoneNumber, email, password, this.image ).subscribe( response => { 
       if ( response.success == true ) {
-        Swal.fire('¡Usuario creado con éxito!', 'Inicia sesión para comenzar a explorar.', 'success')
-        .then(( result ) => {
+        Swal.fire('¡Usuario creado con éxito!', 'Inicia sesión para comenzar a explorar.', 'success').then(( result ) => {
           if ( result.isConfirmed ) {
             this.router.navigate(['/auth/login']);
           }

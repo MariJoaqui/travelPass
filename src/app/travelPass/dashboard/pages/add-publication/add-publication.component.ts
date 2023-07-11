@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+
+// Librerías
+import Swal from 'sweetalert2';
 
 // Services
 import { SharedService } from 'src/app/shared/services/shared.service';
@@ -19,12 +22,11 @@ import { States } from 'src/app/shared/interfaces/interfaces';
 export class AddPublicationComponent {
 
   // Variables y arreglos
-  coverImage       : SafeUrl = '';
-  states           : States[] = [];
+  coverImage : SafeUrl = '';
+  states     : States[] = [];
 
   // Servicios
   constructor( 
-    private domSanitizer  : DomSanitizer,
     private fb            : FormBuilder,
     private router        : Router,
     private sharedService : SharedService,
@@ -112,7 +114,6 @@ export class AddPublicationComponent {
     reader.onloadend = () => {
       const base64Image = reader.result as string;
       this.coverImage = base64Image;
-      console.log( 'Cover image:', base64Image );
     };
     reader.readAsDataURL( file );
   }
@@ -126,7 +127,14 @@ export class AddPublicationComponent {
     const description = this.form.get('description')?.value;
     
     this.sharedService.postPublications( id_state, id_profile, this.coverImage, title, description, limit, price ).subscribe( response => {
-      console.log(response);
+      if ( response.success == true ) {
+        Swal.fire('¡Publicado con éxito!', 'Mira tus publicaciones para mas detalles.', 'success').then(( result ) => {
+          if ( result.isConfirmed ) {
+            this.router.navigate(['/dashboard/post']);
+          }
+        });
+        console.log( response );
+      }
     })
     
   }

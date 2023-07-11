@@ -10,6 +10,7 @@ export interface CardItems {
   price            : string,
   publicationDate? : string,
   ubication?       : string,
+  success?         : boolean
 } 
 
 // Estados
