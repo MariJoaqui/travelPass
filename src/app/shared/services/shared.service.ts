@@ -18,6 +18,11 @@ export class SharedService {
   // Servicios externos
   constructor( private http: HttpClient ) { }
 
+  // Delete
+  deletePublicationById( id : number ) {
+    return this.http.delete( `${ this._url }/procesos/deletePublicacion.php?id=${ id }` );
+  }
+
   // Get
   getMyPublications( id_user : number ): Observable<CardItems[]> {
     return this.http.get<CardItems[]>( `${ this._url }/procesos/getMisPublicaciones.php?id_user=${ id_user }` );

@@ -20,7 +20,7 @@ export class PostComponent implements OnInit {
   constructor( private sharedService : SharedService ) {}
 
   ngOnInit(): void {
-    const id_user = parseInt( localStorage.getItem('id')??'' );
+    const id_user = parseInt( localStorage.getItem('id') ?? '' );
 
     this.sharedService.getMyPublications( id_user ).subscribe( response => {
       this.cards = response;

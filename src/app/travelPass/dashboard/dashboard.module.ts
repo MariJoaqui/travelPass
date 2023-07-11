@@ -12,13 +12,15 @@ import { AddPublicationComponent } from './pages/add-publication/add-publication
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostComponent } from './pages/post/post.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { EditPublicationComponent } from './pages/edit-publication/edit-publication.component';
 
 @NgModule({
   declarations: [
     AddPublicationComponent,
     DashboardComponent,
     PostComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditPublicationComponent
   ],
   imports: [
     CommonModule,

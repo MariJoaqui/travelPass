@@ -31,7 +31,7 @@
       <div class="card" *ngFor="let card of filterCards().reverse()">
         <img [src]="card.image" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">{{ card.title }}</h5>
+          <h5 class="card-title">{{ card.title | titlecase }}</h5>
           <p class="card-text">{{ card.price + '$' }} - {{ card.limit + ' personas.' }}</p>
           <p class="card-text"><small class="text-body-secondary">{{ card.publicationDate | date:'MMMM d, y':'es' | titlecase }}</small></p>
         </div>

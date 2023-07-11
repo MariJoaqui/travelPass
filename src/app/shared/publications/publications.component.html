@@ -30,6 +30,19 @@
         <img [src]="publications.image">
       </div>
     </div>
+    
+    <div class="display-flex wt-100 buttons" *ngIf="showButtons == true">
+      <div class="button">
+        <a class="blue-button bg-blue-2 ft-white" [routerLink]="['/dashboard/edit-publication/', publications.id ]">
+          Editar
+        </a>
+      </div>
+      <div class="button">
+        <a class="blue-button bg-red-1 ft-white" (click)="deletePublication( publications.id )">
+          Eliminar
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
