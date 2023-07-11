@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   constructor( 
     private domSanitizer  : DomSanitizer,
-    private sharedService : SharedService
+    private sharedService : SharedService,
   ) {}
 
   ngOnInit(): void {
