@@ -1,0 +1,51 @@
+/* Globales */
+h5, p {
+  margin-bottom: 0 !important;
+}
+
+/* Carta */
+.card {
+  margin: 0 auto;
+  width: 18rem;
+}
+.card a {
+  margin-left: 0.5rem;
+  text-decoration: none;
+}
+.card a:hover {
+  color: #000000;
+}
+.card i {
+  margin-right: 0.2rem;
+}
+
+/* Botones */
+.buttons {
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+.button {
+  margin: 0 1rem;
+}
+.button a {
+  border-radius: 0.2rem;
+  box-shadow: 5px 5px 8px rgb(195, 195, 195);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 990px) {
+
+  /* Globales */
+  .padding {
+    padding: 2rem 2.3rem;
+  }
+
+  /* Carta */
+  .card {
+    width: 17rem;
+  }
+
+}

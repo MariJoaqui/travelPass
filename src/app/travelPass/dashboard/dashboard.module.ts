@@ -13,6 +13,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostComponent } from './pages/post/post.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditPublicationComponent } from './pages/edit-publication/edit-publication.component';
+import { ProfileDetailsComponent } from './pages/profile-details/profile-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditPublicationComponent } from './pages/edit-publication/edit-publicat
     DashboardComponent,
     PostComponent,
     ProfileComponent,
-    EditPublicationComponent
+    EditPublicationComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     CommonModule,

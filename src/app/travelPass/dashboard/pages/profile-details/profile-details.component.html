@@ -1,0 +1,48 @@
+<!-- Nav -->
+<app-dashboard-nav></app-dashboard-nav>
+
+<!-- Body -->
+<div class="body">
+  <div class="padding">
+    <!-- Volver -->
+    <app-go-back></app-go-back>
+
+    <div class="card mt-4">
+      <img [src]="user.image" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"> {{ user.name + ' ' + user.lastName | titlecase }} </h5>
+        <p>Usuario de TravelPass</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> {{ state.name | titlecase }}, Venezuela. </li>
+        <li class="list-group-item"> 
+          Contacto:
+          <a [href]="['https://wa.me/58' + user.phoneNumber]" target="_blank" class="card-link ft-gray-1">
+            <i class="fa-brands fa-whatsapp ft-green-1"></i>
+            WhatsApp
+          </a>
+          <a [href]="'mailto:' + user.email" class="card-link ft-gray-1">
+            <i class="fa-solid fa-envelope ft-blue-1"></i>
+            Email
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="display-flex wt-100 buttons" *ngIf="showButtons == true">
+      <div class="button">
+        <a class="blue-button bg-blue-2 ft-white" [routerLink]="['/dashboard/edit-publication/', user.id ]">
+          Editar
+        </a>
+      </div>
+      <div class="button">
+        <a class="blue-button bg-red-1 ft-white" (click)="deletePublication( user.id )">
+          Eliminar perfil
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<app-footer-sm class="wt-100"></app-footer-sm>
