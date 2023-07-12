@@ -51,4 +51,13 @@ export class AuthService {
     });
   }
 
+  // Validar correo
+  searchEmail( email : string ): Observable<any> {
+    const data = { email : email }
+
+    return this.http.post<any>( `${this._url}/procesos/existeCorreo.php`, JSON.stringify( data ), {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+
 }

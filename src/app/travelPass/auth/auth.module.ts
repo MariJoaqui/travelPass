@@ -10,13 +10,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { NewPasswordComponent } from './pages/new-password/new-password.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     SignupComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    NewPasswordComponent
   ],
   imports: [
     CommonModule,
