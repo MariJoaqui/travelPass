@@ -31,18 +31,20 @@
     
     <!-- Cartas -->
     <div class="card-container mt-5">
-      <div class="card" *ngFor="let user of filterCards().reverse()">
-        <img [src]="user.image" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{ user.name + ' ' + user.lastName | titlecase }} </h5>
-          <p class="card-text"><small class="text-body-secondary">{{ user.email }}</small></p>
+      <ng-container *ngFor="let user of filterCards().reverse()">
+        <div class="card" *ngIf="user.name && user.name.trim() !== ''">
+          <img [src]="user.image" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ user.name + ' ' + user.lastName | titlecase }} </h5>
+            <p class="card-text"><small class="text-body-secondary">{{ user.email }}</small></p>
+          </div>
+          <div class="card-footer text-center">
+            <a [routerLink]="['/dashboard/profile-details', user.id ]">
+              Detalles
+            </a>
+          </div>
         </div>
-        <div class="card-footer text-center">
-          <a [routerLink]="['/dashboard/profile-details', user.id ]">
-            Detalles
-          </a>
-        </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </div>
