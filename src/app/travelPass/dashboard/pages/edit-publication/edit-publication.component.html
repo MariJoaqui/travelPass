@@ -13,83 +13,84 @@
     <div class="divider-sm bg-blue-3 display-none"></div>
 
     <!-- Formulario -->
-    <div class="form text-center">
-      <form  [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form text-start">
+      <form  [formGroup]="form" (ngSubmit)="update()">
 
         <!-- Título de la publicacóon -->
-        <div class="form-floating">
+        <div>
+          <label class="form-label">Título</label>
           <input class="form-control" 
                  formControlName="title" 
-                 placeholder="Título de la publicación"
+                 [placeholder]="publications.title | titlecase"
                  type="text">
-          <label for="floatingInput">Título</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('title')">
           {{ validateMinMax('title', 10, 100) }}
         </div>
 
         <!-- Precio -->
-        <div class="form-floating mt-3">
+        <div class="mt-3">
+          <label class="form-label">Precio (en dólares)</label>
           <input class="form-control" 
                  formControlName="price"
-                 placeholder="Valor del paquete"
+                 [placeholder]="publications.price"
                  type="text">
-          <label for="floatingInput">Precio (en dólares)</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('price')">
           {{ validatePrice }}
         </div>
 
         <!-- Cantidad de personas -->
-        <div class="form-floating mt-3">
+        <div class="mt-3">
+          <label class="form-label">Límite de personas</label>
           <input class="form-control" 
                  formControlName="limit"
-                 placeholder="Maximo de personas" 
+                 [placeholder]="publications.limit" 
                  type="text">
-          <label for="floatingInput">Límite de personas</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('limit')">
           {{ validateLimit }}
         </div>
 
         <!-- Estado -->
-        <div class="form-floating mt-3">
+        <label class="form-label mt-3">Ubicación</label>
+        <div class="form-floating">
           <select class="form-select" formControlName="state">
             <option *ngFor="let state of states" [value]="state.id"> {{ state.name | titlecase }} </option>
           </select>
-          <label for="floatingSelectGrid">Ubicación (Estado)</label>
+          <label for="floatingSelectGrid">Estado</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('state')">
           {{ errorMessage('state') }}
         </div>
 
         <!-- Descripción -->
-        <div class="form-floating mt-3">
+        <div class="mt-3">
+          <label class="form-label">Descripción</label>
           <textarea class="form-control" 
                     formControlName="description"
-                    placeholder="Describe lo que incluye el paquete">
+                    [placeholder]="publications.description">
           </textarea>
-          <label for="floatingTextarea">Descripción</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('description')">
           {{ validateMinMax('description', 50, 500) }}
         </div>
 
         <!-- Imagen de portada -->
-        <div class="form-floating mt-3">
+        <div class="mt-3">
+          <label class="form-label">Imagen de portada</label>
           <input class="form-control" 
                  formControlName="coverImage"
-                 placeholder="Maximo de personas" 
+                 [placeholder]="publications.image" 
                  type="file"
                  (change)="onCoverImageChange($event)">
-          <label for="floatingInput">Imagen de portada</label>
         </div>
         <div class="ft-red-1 text-start mb-3 mt-1" *ngIf="invalidField('coverImage')">
           {{ errorMessage('coverImage') }}
         </div>
 
         <!-- Agregar -->
-        <div class="add-button wt-100">
+        <div class="add-button wt-100" *ngIf="hasValue()">
           <button class="blue-button bg-blue-2 ft-white" [disabled]="form.invalid">
             Guardar
           </button>

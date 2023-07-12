@@ -69,4 +69,21 @@ export class SharedService {
     });
   }
 
+  // Put
+  updatePublication( id : number, id_state : number, image : any, title : string, description : string, limit : string, price : string ): Observable<CardItems> {
+    const data = {
+      id          : id,
+      id_state    : id_state,
+      coverImage  : image,
+      title       : title,
+      description : description,
+      limit       : limit,
+      price       : price
+    };
+
+    return this.http.put<CardItems>( `${ this._url }/procesos/updatePublicacion.php?id=${ id }`, JSON.stringify(data), {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }  
+
 }

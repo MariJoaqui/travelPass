@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 // Librerías
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 import { ValidatorService } from 'src/app/shared/validator/validator.service';
 
 // Interfaces
-import { States } from 'src/app/shared/interfaces/interfaces';
+import { CardItems, States } from 'src/app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-edit-publication',
@@ -21,11 +22,13 @@ import { States } from 'src/app/shared/interfaces/interfaces';
 export class EditPublicationComponent implements OnInit {
 
   // Variables y arreglos
-  coverImage : SafeUrl = '';
-  states     : States[] = [];
+  coverImage    : SafeUrl = '';
+  publications! : CardItems;
+  states        : States[] = [];
 
   // Servicios
   constructor( 
+    private activateRoute : ActivatedRoute,
     private fb            : FormBuilder,
     private router        : Router,
     private sharedService : SharedService,
@@ -34,16 +37,23 @@ export class EditPublicationComponent implements OnInit {
 
   // Formulario y validaciones
   form: FormGroup = this.fb.group({  
-    title            : [ '', [ Validators.required, Validators.minLength(10), Validators.maxLength(100) ] ],
-    price            : [ '', [ Validators.required, Validators.minLength(2), Validators.pattern( this.Validator.priceFormat ) ] ],
-    limit            : [ '', [ Validators.required, Validators.maxLength(1), Validators.pattern( this.Validator.numberFormat ) ] ],
-    state            : [ '', [ Validators.required ] ],
-    description      : [ '', [ Validators.required, Validators.minLength(50), Validators.maxLength(500) ] ],
-    coverImage       : [ '', [ Validators.required ] ]
+    title            : [ '', [ Validators.minLength(10), Validators.maxLength(100) ] ],
+    price            : [ '', [ Validators.minLength(2), Validators.pattern( this.Validator.priceFormat ) ] ],
+    limit            : [ '', [ Validators.maxLength(1), Validators.pattern( this.Validator.numberFormat ) ] ],
+    state            : [ '' ],
+    description      : [ '', [ Validators.minLength(50), Validators.maxLength(500) ] ],
+    coverImage       : [ '' ]
   });
 
   ngOnInit(): void {
     this.sharedService.getStates().subscribe( response => this.states = response );
+
+    this.activateRoute.params.pipe(
+      switchMap( ({ id }) => this.sharedService.getPublicationsById( id ) )
+    )
+    .subscribe( response => {
+      this.publications = response;
+    });
   }
 
   invalidField( fieldName : string ) {
@@ -53,10 +63,7 @@ export class EditPublicationComponent implements OnInit {
   errorMessage( fieldName : string ): string {
     const field = this.form.get( fieldName );
 
-    if ( field?.errors?.['required'] ) {
-      return 'El campo es obligatorio.';
-    }
-    else if ( field?.errors?.['pattern'] ) {
+    if ( field?.errors?.['pattern'] ) {
       return 'El formato es incorrecto.'
     }
     return '';
@@ -65,10 +72,7 @@ export class EditPublicationComponent implements OnInit {
   validateMinMax( fieldName : string, minLength : number, maxLength : number ): string {
     const field = this.form.get( fieldName );
   
-    if ( field?.errors?.['required'] ) {
-      return 'El campo es obligatorio.';
-    }
-    else if ( field?.errors?.['minlength']  ) {
+    if ( field?.errors?.['minlength']  ) {
       return `Debe contener al menos ${ minLength } caracteres.`;
     }
     else if ( field?.errors?.['maxlength'] ) {
@@ -80,10 +84,7 @@ export class EditPublicationComponent implements OnInit {
   get validateLimit() {
     const field = this.form.get( 'limit' );
   
-    if ( field?.errors?.['required'] ) {
-      return 'El campo es obligatorio.';
-    }
-    else if ( field?.errors?.['maxlength'] ) {
+    if ( field?.errors?.['maxlength'] ) {
       return `Debe contener máximo 1 caracter.`;
     }
     else if ( field?.errors?.['pattern'] ) {
@@ -95,10 +96,7 @@ export class EditPublicationComponent implements OnInit {
   get validatePrice() {
     const field = this.form.get( 'price' );
   
-    if ( field?.errors?.['required'] ) {
-      return 'El campo es obligatorio.';
-    }
-    else if ( field?.errors?.['minlength'] ) {
+    if ( field?.errors?.['minlength'] ) {
       return `Debe contener máximo 2 caracteres.`;
     }
     else if ( field?.errors?.['pattern'] ) {
@@ -117,17 +115,26 @@ export class EditPublicationComponent implements OnInit {
     reader.readAsDataURL( file );
   }
 
-  submit() {
-    const id_profile  = parseInt( localStorage.getItem('id') ?? '0' );
+  hasValue(): boolean {
+    for ( const controlName in this.form.controls ) {
+      const control = this.form.controls[controlName];
+      if ( control.value && control.valid ) {
+        return true;
+      }
+    }
+    return false;
+  }  
+
+  update() {
     const title       = this.form.get('title')?.value;
     const price       = this.form.get('price')?.value;
     const limit       = this.form.get('limit')?.value; 
     const id_state    = this.form.get('state')?.value; 
     const description = this.form.get('description')?.value;
     
-    this.sharedService.postPublications( id_state, id_profile, this.coverImage, title, description, limit, price ).subscribe( response => {
+    this.sharedService.updatePublication( this.publications.id, id_state, this.coverImage, title, description, limit, price ).subscribe( response => {
       if ( response.success == true ) {
-        Swal.fire('¡Publicado con éxito!', 'Mira tus publicaciones para mas detalles.', 'success').then(( result ) => {
+        Swal.fire('¡Se actualizaron los datos!', 'Mira tus publicaciones para mas detalles.', 'success').then(( result ) => {
           if ( result.isConfirmed ) {
             this.router.navigate(['/dashboard/post']);
           }
@@ -135,7 +142,6 @@ export class EditPublicationComponent implements OnInit {
         console.log( response );
       }
     })
-    
   }
   
 }
