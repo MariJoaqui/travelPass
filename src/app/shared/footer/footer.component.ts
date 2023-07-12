@@ -10,18 +10,12 @@ import { NavItems, SocialMedia } from '../interfaces/interfaces';
 })
 export class FooterComponent {
 
-  navItems: NavItems[] = [
-    { item: 'Inicio', link: '' },
-    { item: 'Sobre nosotros', link: '' },
-    { item: '¿Qué ofrecemos?', link: '' }
-  ];
-
   socialMedia: SocialMedia[] = [
     { name: 'TravelPass' , icon: 'fa-brands fa-facebook', link: '' },
     { name: '@travel_pass' , icon: 'fa-brands fa-instagram', link: '' },
     { name: '@travel_pass' , icon: 'fa-brands fa-twitter', link: '' },
     { name: '@travel_pass' , icon: 'fa-brands fa-tiktok', link: '' },
-    { name: 'travel_pass@gmail.com' , icon: 'fa-solid fa-envelope', link: '' },
+    { name: 't_pass@gmail.com' , icon: 'fa-solid fa-envelope', link: '' },
   ];
 
 }

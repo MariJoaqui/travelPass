@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 
 // Interfaces
 import { NavItems } from 'src/app/shared/interfaces/interfaces';
@@ -12,9 +13,9 @@ export class HomeComponent {
 
   // Enlaces del Nav
   navItems: NavItems[] = [
-    { item: 'Inicio', link: '' },
-    { item: 'Sobre nosotros', link: '' },
-    { item: '¿Qué ofrecemos?', link: '' }
+    { item: 'Inicio', link: 'home' },
+    { item: 'Sobre nosotros', link: 'about-us' },
+    { item: '¿Qué ofrecemos?', link: 'we-offer' }
   ];
 
   // Cartas de ofertas de ejemplos
@@ -44,5 +45,11 @@ export class HomeComponent {
       ubication: 'Falcón, Venezuela.'
     }
   ];
+
+  constructor( private viewportScroller : ViewportScroller ) {}
+
+  scrollToSection( sectionId : string ) {
+    this.viewportScroller.scrollToAnchor( sectionId );
+  }  
 
 }

@@ -21,7 +21,7 @@ export class FooterSmComponent {
     { name: '@travel_pass' , icon: 'fa-brands fa-instagram', link: '' },
     { name: '@travel_pass' , icon: 'fa-brands fa-twitter', link: '' },
     { name: '@travel_pass' , icon: 'fa-brands fa-tiktok', link: '' },
-    { name: 'travel_pass@gmail.com' , icon: 'fa-solid fa-envelope', link: '' },
+    { name: 't_pass@gmail.com' , icon: 'fa-solid fa-envelope', link: '' },
   ];
 
 }

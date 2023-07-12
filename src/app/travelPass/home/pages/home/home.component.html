@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav">
         <li *ngFor="let item of navItems">
-          <a class="nav-link ft-gray-2"> {{ item.item }} </a>
+          <a class="nav-link ft-gray-2" (click)="scrollToSection( item.link )"> {{ item.item }} </a>
         </li>
         <li class="login-button bg-blue-1">
           <a class="nav-link ft-white" routerLink="/auth/login">Iniciar sesión</a>
@@ -33,7 +33,7 @@
 <div class="body">
 
   <!-- Presentación -->
-  <div>
+  <div id="home">
     <!-- Imagen de fondo del inicio -->
     <img src="../../../../../assets/img/image/fondo-inicio.jpg" class="presentation-image position-absolute wt-100">
 
@@ -52,7 +52,7 @@
   <div class="position-relative">
 
     <!-- Sobre nosotros -->
-    <div class="about-us bg-white wt-100">
+    <div class="about-us bg-white wt-100" id="about-us">
 
       <!-- Wave verde azulado -->
       <div class="wave" style="height: 200px; overflow: hidden;"  bis_skin_checked="1">
@@ -86,7 +86,7 @@
     </div>
 
     <!-- ¿Qué ofrecemos? -->
-    <div class="offers ft-white wt-100">
+    <div class="offers ft-white wt-100" id="we-offer">
 
       <!-- Descripción -->
       <h3>¿Qué ofrecemos?</h3>
