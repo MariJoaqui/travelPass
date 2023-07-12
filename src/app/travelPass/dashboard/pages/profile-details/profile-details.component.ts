@@ -37,9 +37,7 @@ export class ProfileDetailsComponent {
     )
     .subscribe( response => {
       this.user = response;
-      console.log(response);
       
-
       // Mostrar los botones de editar y eliminar solo si es el usuario en la sesión activa
       if ( response.id == idUser ) {
         this.showButtons = true;
@@ -49,28 +47,6 @@ export class ProfileDetailsComponent {
         this.state = response;
       });
     });
-  }
-
-  deletePublication( id : number ) {
-    // Swal.fire({
-    //   title: '¿Deseas eliminar la publicación?',
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   cancelButtonText: 'Cancelar',
-    //   confirmButtonColor: '#3085D6',
-    //   cancelButtonColor: '#D33',
-    //   confirmButtonText: 'Eliminar'
-    // }).then(( result ) => {
-    //   if ( result.isConfirmed ) {
-    //     this.sharedService.deletePublicationById( id ).subscribe( response => {
-    //       Swal.fire(
-    //         'Publicación eliminada.'
-    //       ).then(() => {
-    //         this.router.navigate(['/dashboard/post']);
-    //       });
-    //     });
-    //   }
-    // })
   }
 
 }

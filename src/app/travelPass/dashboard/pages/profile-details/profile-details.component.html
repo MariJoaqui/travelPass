@@ -11,7 +11,6 @@
       <img [src]="user.image" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title"> {{ user.name + ' ' + user.lastName | titlecase }} </h5>
-        <p>Usuario de TravelPass</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"> {{ state.name | titlecase }}, Venezuela. </li>
@@ -31,13 +30,8 @@
     
     <div class="display-flex wt-100 buttons" *ngIf="showButtons == true">
       <div class="button">
-        <a class="blue-button bg-blue-2 ft-white" [routerLink]="['/dashboard/edit-publication/', user.id ]">
+        <a class="blue-button bg-blue-2 ft-white" [routerLink]="['/dashboard/edit-profile/', user.id ]">
           Editar
-        </a>
-      </div>
-      <div class="button">
-        <a class="blue-button bg-red-1 ft-white" (click)="deletePublication( user.id )">
-          Eliminar perfil
         </a>
       </div>
     </div>

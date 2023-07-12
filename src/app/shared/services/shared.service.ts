@@ -22,6 +22,9 @@ export class SharedService {
   deletePublicationById( id : number ) {
     return this.http.delete( `${ this._url }/procesos/deletePublicacion.php?id=${ id }` );
   }
+  deleteUserById( id : number ) {
+    return this.http.delete( `${ this._url }/procesos/deleteUsuario.php?id=${ id }` );
+  }
 
   // Get
   getMyPublications( id_user : number ): Observable<CardItems[]> {
@@ -82,6 +85,23 @@ export class SharedService {
     };
 
     return this.http.put<CardItems>( `${ this._url }/procesos/updatePublicacion.php?id=${ id }`, JSON.stringify(data), {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }  
+
+  updateUser( id : number, id_state : number, name : string, lastName : string, phoneNumber : string, email : string, password : string, image : any ): Observable<CardItems> {
+    const data = {
+      id          : id,
+      id_state    : id_state,
+      name        : name,
+      lastName    : lastName,
+      phoneNumber : phoneNumber,
+      email       : email,
+      password    : password,
+      image       : image
+    };
+
+    return this.http.put<CardItems>( `${ this._url }/procesos/updateUsuario.php?id=${ id }`, JSON.stringify(data), {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }  

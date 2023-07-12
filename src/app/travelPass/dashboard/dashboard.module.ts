@@ -14,6 +14,7 @@ import { PostComponent } from './pages/post/post.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditPublicationComponent } from './pages/edit-publication/edit-publication.component';
 import { ProfileDetailsComponent } from './pages/profile-details/profile-details.component';
+import { ProfileChangesComponent } from './pages/profile-changes/profile-changes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfileDetailsComponent } from './pages/profile-details/profile-details
     PostComponent,
     ProfileComponent,
     EditPublicationComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    ProfileChangesComponent
   ],
   imports: [
     CommonModule,
