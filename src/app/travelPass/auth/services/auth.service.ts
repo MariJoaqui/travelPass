@@ -60,4 +60,16 @@ export class AuthService {
     });
   }
 
+  // cambiar contraseña
+  updatePassword( id : number, password : string ): Observable<any> {
+    const data = {
+      id          : id,
+      password    : password
+    };
+
+    return this.http.put<any>( `${ this._url }/procesos/updateClave.php`, JSON.stringify(data), {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  } 
+
 }
