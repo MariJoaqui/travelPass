@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+// Librerías 
+import Swal from 'sweetalert2';
+
 // Interfaces
 import { NavItems } from 'src/app/shared/interfaces/interfaces';
 
@@ -20,8 +23,20 @@ export class DashboardNavComponent {
   constructor( private router : Router ) {}
 
   logout(): void {
-    localStorage.removeItem('id');
-    this.router.navigate(['/auth/login']);
+    Swal.fire({
+      title: '¿Seguro que desea salir?',
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#3085D6',
+      cancelButtonColor: '#D33',
+      confirmButtonText: 'Salir'
+    }).then(( result ) => {
+      if ( result.isConfirmed ) {
+        localStorage.removeItem('id');
+        this.router.navigate(['/auth/login']);
+      }
+    });
   }
 
 }

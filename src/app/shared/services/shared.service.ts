@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment.development';
+// import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 // Interfaces
@@ -20,10 +21,7 @@ export class SharedService {
 
   // Delete
   deletePublicationById( id : number ) {
-    return this.http.delete( `${ this._url }/procesos/deletePublicacion.php?id=${ id }` );
-  }
-  deleteUserById( id : number ) {
-    return this.http.delete( `${ this._url }/procesos/deleteUsuario.php?id=${ id }` );
+    return this.http.get( `${ this._url }/procesos/deletePublicacion.php?id=${ id }` );
   }
 
   // Get
@@ -84,7 +82,7 @@ export class SharedService {
       price       : price
     };
 
-    return this.http.put<CardItems>( `${ this._url }/procesos/updatePublicacion.php?id=${ id }`, JSON.stringify(data), {
+    return this.http.post<CardItems>( `${ this._url }/procesos/updatePublicacion.php?id=${ id }`, JSON.stringify(data), {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }  
@@ -101,7 +99,7 @@ export class SharedService {
       image       : image
     };
 
-    return this.http.put<CardItems>( `${ this._url }/procesos/updateUsuario.php?id=${ id }`, JSON.stringify(data), {
+    return this.http.post<CardItems>( `${ this._url }/procesos/updateUsuario.php?id=${ id }`, JSON.stringify(data), {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }  

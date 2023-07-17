@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
+// Librerías 
+import Swal from 'sweetalert2';
+
 // Interfaces
 import { NavItems } from 'src/app/shared/interfaces/interfaces';
 
@@ -51,5 +54,12 @@ export class HomeComponent {
   scrollToSection( sectionId : string ) {
     this.viewportScroller.scrollToAnchor( sectionId );
   }  
+
+  showMessage() {
+    Swal.fire({
+      icon: 'error',
+      text: 'Debe iniciar sesión para poder ver más detalles.'
+    });
+  }
 
 }

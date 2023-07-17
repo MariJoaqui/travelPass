@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment.development';
+// import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 // Interfaces
@@ -67,7 +68,7 @@ export class AuthService {
       password    : password
     };
 
-    return this.http.put<any>( `${ this._url }/procesos/updateClave.php`, JSON.stringify(data), {
+    return this.http.post<any>( `${ this._url }/procesos/updateClave.php`, JSON.stringify(data), {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   } 

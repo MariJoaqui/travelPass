@@ -82,6 +82,7 @@
 }
 .offers .card {
   box-shadow: 5px 5px 5px #7D7D7D;
+  cursor: pointer;
 }
 
 /* Pantallas pequeñas */
